@@ -1,0 +1,2834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050510" id="themeColor">
+<script>
+try {
+  var savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeColor').setAttribute('content', '#f5f6fb');
+  }
+} catch (e) {}
+</script>
+<title>Vinay Mathe — Software Engineer</title>
+<meta name="description" content="Vinay Mathe, Software Engineer working across frontend and backend, now expanding into AI integration. Compliance software for CA and CS firms across India.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vinay Mathe — Software Engineer">
+<meta property="og:description" content="Frontend and backend engineer building compliance software for CA and CS firms across India, now expanding into AI integration.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6aff'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fff'%3EVM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ═══════════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-0: #050510;
+  --bg-1: #0a0a1a;
+  --bg-2: #0f0f2a;
+  --bg-card: rgba(15,15,42,0.6);
+  --bg-glass: rgba(15,15,42,0.4);
+  --text-100: #f0f0f8;
+  --text-200: #c8c8e0;
+  --text-300: #9898b8;
+  --text-400: #8a8aae;
+  --accent: #7c6aff;
+  --accent-glow: rgba(124,106,255,0.3);
+  --teal: #00e0b0;
+  --teal-glow: rgba(0,224,176,0.2);
+  --rose: #ff6690;
+  --amber: #ffcc40;
+  --cyan: #40d0e0;
+  --border: rgba(124,106,255,0.12);
+  --border-hover: rgba(124,106,255,0.35);
+  --glass-border: rgba(var(--tint),0.06);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-lg: 0 16px 64px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 40px rgba(124,106,255,0.15);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-heading: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', Consolas, 'Courier New', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-0);
+  color: var(--text-200);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+a { color: var(--accent); text-decoration: none; transition: all 0.3s var(--ease); }
+a:hover { color: var(--teal); }
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--teal), var(--rose));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   DOT GRID BACKGROUND
+   ═══════════════════════════════════════════ */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(124,106,255,0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.bg-gradient-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,106,255,0.2), transparent 70%);
+  top: -10%; left: -10%;
+  animation-duration: 22s;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,224,176,0.15), transparent 70%);
+  bottom: 10%; right: -5%;
+  animation-duration: 28s;
+  animation-delay: -5s;
+}
+.orb-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(255,102,144,0.12), transparent 70%);
+  top: 40%; left: 50%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-40px, 60px) scale(0.9); }
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; width: 100%;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: all 0.4s var(--ease);
+}
+.nav.scrolled {
+  padding: 10px 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px) saturate(1.4);
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-100);
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text-300);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s var(--ease);
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover {
+  color: var(--text-100);
+  background: rgba(124,106,255,0.08);
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-100);
+  font-size: 18px;
+  cursor: pointer;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.nav-toggle:hover { border-color: var(--accent); background: rgba(124,106,255,0.08); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════ */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 120px 0; position: relative; }
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Section Labels */
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--teal);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-100);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--text-300);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  padding: 84px 0 72px;
+  position: relative;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  gap: 48px;
+  align-items: center;
+  margin-top: 44px;
+}
+.hero-content { min-width: 0; }
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,224,176,0.06);
+  border: 1px solid rgba(0,224,176,0.15);
+  border-radius: 100px;
+  padding: 8px 20px 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  margin-bottom: 32px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  position: relative;
+}
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--teal);
+  animation: statusPing 2s ease-out infinite;
+}
+@keyframes statusPing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--text-100);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.hero-name .highlight {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 60%, var(--rose) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-role {
+  font-size: 20px;
+  color: var(--text-300);
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.hero-role strong { color: var(--text-200); font-weight: 600; }
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-300);
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+/* Hero Stats */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin-bottom: 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.metric {}
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-100);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.metric-value .unit {
+  font-size: 20px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.metric-label {
+  font-size: 12px;
+  color: var(--text-400);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 6px;
+}
+
+/* Hero Buttons */
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  border: none;
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(124,106,255,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(124,106,255,0.5);
+  color: #fff;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-200);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(124,106,255,0.05);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════════ */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 56px;
+  align-items: start;
+}
+.about-text p {
+  font-size: 16px;
+  color: var(--text-300);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.about-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(124,106,255,0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.about-card:hover::before { opacity: 1; }
+.about-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+.about-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.about-card:nth-child(1) .about-card-icon { background: rgba(124,106,255,0.12); color: var(--accent); }
+.about-card:nth-child(2) .about-card-icon { background: rgba(0,224,176,0.12); color: var(--teal); }
+.about-card:nth-child(3) .about-card-icon { background: rgba(255,102,144,0.12); color: var(--rose); }
+.about-card:nth-child(4) .about-card-icon { background: rgba(255,204,64,0.12); color: var(--amber); }
+.about-card-title { font-weight: 700; font-size: 15px; color: var(--text-100); margin-bottom: 6px; }
+.about-card-desc { font-size: 13px; color: var(--text-400); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════
+   SKILLS — Terminal Theme
+   ═══════════════════════════════════════════ */
+.skills-terminal {
+  margin-top: 56px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: rgba(var(--tint),0.03);
+  border-bottom: 1px solid var(--border);
+}
+.terminal-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-400);
+  margin-left: 12px;
+}
+.terminal-body { padding: 32px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.skill-group {}
+.skill-group-header {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.skill-group-header .icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.sg-1 .icon { background: rgba(124,106,255,0.12); color: var(--accent); }
+.sg-1 .skill-group-header { color: var(--accent); }
+.sg-2 .icon { background: rgba(0,224,176,0.12); color: var(--teal); }
+.sg-2 .skill-group-header { color: var(--teal); }
+.sg-3 .icon { background: rgba(255,102,144,0.12); color: var(--rose); }
+.sg-3 .skill-group-header { color: var(--rose); }
+.sg-4 .icon { background: rgba(255,204,64,0.12); color: var(--amber); }
+.sg-4 .skill-group-header { color: var(--amber); }
+.sg-5 .icon { background: rgba(64,208,224,0.12); color: var(--cyan); }
+.sg-5 .skill-group-header { color: var(--cyan); }
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(var(--tint),0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-300);
+  transition: all 0.3s var(--ease);
+  cursor: default;
+}
+.pill:hover {
+  background: rgba(124,106,255,0.08);
+  border-color: rgba(124,106,255,0.2);
+  color: var(--text-100);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════
+   MODULES
+   ═══════════════════════════════════════════ */
+.modules-heading {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-100);
+  margin: 64px 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.modules-heading i { color: var(--accent); font-size: 20px; }
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 20px;
+}
+.mod-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.mod-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.mod-card:hover::after { opacity: 1; }
+.mod-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+.mod-card:nth-child(1)::after { background: var(--accent); }
+.mod-card:nth-child(2)::after { background: var(--teal); }
+.mod-card:nth-child(3)::after { background: var(--rose); }
+.mod-card:nth-child(4)::after { background: var(--amber); }
+.mod-card:nth-child(5)::after { background: var(--cyan); }
+.mod-card:nth-child(6)::after { background: var(--accent); }
+
+.mod-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.mod-icon {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.mod-card:nth-child(1) .mod-icon { background: rgba(124,106,255,0.12); color: var(--accent); }
+.mod-card:nth-child(2) .mod-icon { background: rgba(0,224,176,0.12); color: var(--teal); }
+.mod-card:nth-child(3) .mod-icon { background: rgba(255,102,144,0.12); color: var(--rose); }
+.mod-card:nth-child(4) .mod-icon { background: rgba(255,204,64,0.12); color: var(--amber); }
+.mod-card:nth-child(5) .mod-icon { background: rgba(64,208,224,0.12); color: var(--cyan); }
+.mod-card:nth-child(6) .mod-icon { background: rgba(124,106,255,0.12); color: var(--accent); }
+
+.mod-name { font-weight: 700; font-size: 16px; color: var(--text-100); }
+.mod-desc { font-size: 14px; color: var(--text-300); line-height: 1.65; margin-bottom: 16px; }
+.mod-list { list-style: none; }
+.mod-list li {
+  font-size: 13px;
+  color: var(--text-400);
+  padding: 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.mod-list li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--teal);
+  font-size: 9px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.next-tech {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(124,106,255,0.08);
+  border: 1px solid rgba(124,106,255,0.15);
+  color: var(--accent-soft);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   EXPERIENCE TIMELINE
+   ═══════════════════════════════════════════ */
+.timeline { margin-top: 56px; }
+.tl-item {
+  display: grid;
+  grid-template-columns: 200px 48px 1fr;
+  gap: 0;
+  min-height: 120px;
+}
+.tl-date {
+  text-align: right;
+  padding-top: 4px;
+  padding-right: 24px;
+}
+.tl-date-text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+}
+.tl-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.tl-dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--bg-0);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.tl-item:last-child .tl-dot { border-color: var(--teal); }
+.tl-connector {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--accent), var(--teal));
+  opacity: 0.3;
+}
+.tl-item:last-child .tl-connector { display: none; }
+.tl-content { padding: 0 0 48px 24px; }
+.tl-role {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-100);
+  margin-bottom: 4px;
+}
+.tl-company { font-size: 14px; color: var(--text-400); margin-bottom: 20px; }
+.tl-points { list-style: none; }
+.tl-points li {
+  font-size: 14px;
+  color: var(--text-300);
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.65;
+}
+.tl-points li::before {
+  content: '\f054';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--accent);
+  font-size: 9px;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════════ */
+.contact-section { text-align: center; }
+.contact-section .section-desc { margin: 0 auto; }
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 56px;
+}
+.contact-link {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.4s var(--ease);
+  color: var(--text-200);
+  min-width: 260px;
+}
+.contact-link:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+  color: var(--text-100);
+}
+.contact-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.contact-link:nth-child(1) .contact-icon { background: rgba(124,106,255,0.12); color: var(--accent); }
+.contact-link:nth-child(2) .contact-icon { background: rgba(0,224,176,0.12); color: var(--teal); }
+.contact-link:nth-child(3) .contact-icon { background: rgba(255,102,144,0.12); color: var(--rose); }
+.contact-label { font-size: 11px; color: var(--text-400); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+.contact-value { font-weight: 600; font-size: 15px; color: var(--text-100); margin-top: 2px; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-text { font-size: 14px; color: var(--text-400); }
+.footer-socials { display: flex; gap: 16px; }
+.footer-socials a {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-400);
+  font-size: 16px;
+  transition: all 0.3s var(--ease);
+}
+.footer-socials a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(124,106,255,0.08);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-name { font-size: 48px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 32px; }
+  .metric-value { font-size: 32px; }
+  .section-title { font-size: 36px; }
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .tl-item { grid-template-columns: 1fr; }
+  .tl-date { text-align: left; padding: 0 0 8px 0; }
+  .tl-line { display: none; }
+  .tl-content { padding: 0 0 40px 0; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .section { padding: 80px 0; }
+  .hero-name { font-size: 38px; }
+  .hero-role { font-size: 17px; }
+  .nav-links { display: none; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0;
+    width: 100%;
+    background: var(--nav-bg-solid);
+    backdrop-filter: blur(24px);
+    padding: 16px 32px 24px;
+    gap: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .contact-grid { flex-direction: column; align-items: center; }
+  .footer-inner { flex-direction: column; gap: 16px; }
+}
+/* ═══════════════════════════════════════════
+   HERO DATA-FLOW STAGE
+   ═══════════════════════════════════════════ */
+.stage-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.flow-stage {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(124,106,255,0.13), transparent 42%),
+    var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  padding: 10px 14px;
+}
+#flowStage { display: block; width: 100%; height: auto; }
+.fs-head {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  fill: var(--teal);
+}
+.fs-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--text-100);
+}
+.fs-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  fill: var(--text-300);
+}
+.fs-halo { paint-order: stroke; stroke: var(--bg-1); stroke-width: 5px; stroke-linejoin: round; }
+.fs-hub-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  fill: var(--text-100);
+  letter-spacing: 1px;
+}
+.fs-hub-sub {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--accent-soft);
+  letter-spacing: 3px;
+}
+.fs-chip { font-family: var(--font-sans); font-size: 8.5px; font-weight: 700; fill: #fff; letter-spacing: .3px; }
+.fs-link { cursor: pointer; }
+.fs-link:hover .fs-tile, .fs-link:focus-visible .fs-tile { stroke: var(--teal); stroke-width: 2.5; }
+.fs-link:focus-visible { outline: none; }
+
+/* ═══════════════════════════════════════════
+   PORTAL CARDS
+   ═══════════════════════════════════════════ */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.portal-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  scroll-margin-top: 90px;
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.portal-card:hover, .portal-card:target { border-color: var(--border-hover); transform: translateY(-3px); }
+.portal-logo {
+  flex: 0 0 64px;
+  width: 64px; height: 64px;
+  border-radius: 14px;
+  background: #fff;
+  padding: 6px;
+}
+.portal-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.portal-card h4 { font-family: var(--font-heading); font-size: 16px; color: var(--text-100); margin-bottom: 4px; }
+.portal-card p { font-size: 13px; color: var(--text-300); line-height: 1.55; }
+.portal-note { margin-top: 14px; font-size: 12px; color: var(--text-300); }
+
+/* ═══════════════════════════════════════════
+   RAG ASSISTANT
+   ═══════════════════════════════════════════ */
+.rag-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 28px;
+  margin-top: 48px;
+  align-items: start;
+}
+.rag-steps { list-style: none; display: grid; gap: 8px; }
+.rag-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  background: var(--bg-glass);
+  transition: border-color .3s, background .3s, opacity .3s;
+}
+.rag-step-num {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-300);
+  background: rgba(var(--tint),0.05);
+  transition: background .3s, color .3s;
+}
+.rag-step h4 { font-size: 14px; color: var(--text-100); margin-bottom: 2px; }
+.rag-step p { font-size: 13px; color: var(--text-300); line-height: 1.5; }
+.rag-step.is-active { border-color: var(--accent); background: rgba(124,106,255,0.12); }
+.rag-step.is-active .rag-step-num { background: var(--accent); color: #fff; }
+.rag-step.is-done .rag-step-num { background: rgba(0,224,176,0.16); color: var(--teal); }
+.rag-step.is-skipped { opacity: .45; }
+.rag-fields { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.rag-field {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,224,176,0.25);
+  color: var(--text-200);
+}
+.rag-field i { margin-right: 4px; font-size: 9px; color: var(--teal); }
+.rag-field.is-blocked { border-color: rgba(255,102,144,0.4); color: var(--danger-text); text-decoration: line-through; }
+.rag-field.is-blocked i { color: var(--rose); }
+
+.rag-chat {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.rag-chat-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(var(--tint),0.03);
+}
+.rag-chat-title { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-100); }
+.rag-sample {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--amber);
+  border: 1px solid rgba(255,204,64,0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+.rag-log {
+  height: 500px;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rag-msg-user {
+  align-self: flex-end;
+  max-width: 85%;
+  padding: 9px 14px;
+  border-radius: 14px 14px 4px 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+}
+.rag-toolline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-300);
+}
+.rag-toolline i { color: var(--teal); }
+.rag-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(124,106,255,0.12);
+  border: 1px solid rgba(124,106,255,0.22);
+  color: var(--text-200);
+}
+.rag-answer { font-size: 14px; line-height: 1.6; color: var(--text-200); }
+.rag-card {
+  position: relative;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: rgba(var(--tint),0.025);
+  padding: 12px;
+}
+.rag-scroll { overflow-x: auto; }
+.rag-table { width: 100%; min-width: 340px; border-collapse: collapse; font-size: 13px; }
+.rag-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--text-300);
+  padding: 4px 8px 8px;
+}
+.rag-table td { padding: 8px; color: var(--text-200); border-top: 1px solid var(--glass-border); }
+.rag-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.rag-pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 100px;
+  font-size: 12px;
+  white-space: nowrap;
+  border: 1px solid var(--glass-border);
+  color: var(--text-200);
+}
+.rag-pill.is-urgent { border-color: rgba(255,102,144,0.5); color: var(--danger-text); }
+.rag-pill.is-soon { border-color: rgba(255,204,64,0.45); color: var(--amber); }
+.rag-card-foot { margin-top: 8px; font-size: 12px; color: var(--text-300); }
+
+.rag-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; font-size: 12px; color: var(--text-200); }
+.rag-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.rag-swatch { width: 10px; height: 10px; border-radius: 3px; }
+.rag-bar-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 22px;
+  gap: 10px;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--text-200);
+  min-height: 28px;
+}
+.rag-bar-track { display: flex; gap: 2px; height: 28px; align-items: center; }
+.rag-seg {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  cursor: default;
+  outline: none;
+  width: 0;
+  transition: width .7s var(--ease);
+}
+.rag-seg-fill { display: block; width: 100%; height: 12px; }
+.rag-seg:last-child .rag-seg-fill { border-radius: 0 4px 4px 0; }
+.rag-seg:focus-visible .rag-seg-fill, .rag-seg:hover .rag-seg-fill { filter: brightness(1.25); }
+.rag-bar-total { text-align: right; font-weight: 600; color: var(--text-100); font-variant-numeric: tabular-nums; }
+.rag-tip {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -100%);
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: var(--bg-0);
+  border: 1px solid var(--border-hover);
+  color: var(--text-100);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.rag-card details { margin-top: 8px; font-size: 12px; color: var(--text-300); }
+.rag-card summary { cursor: pointer; }
+.rag-card details .rag-table { margin-top: 6px; }
+
+.rag-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.rag-stat { padding: 8px 10px; border-radius: 8px; background: rgba(var(--tint),0.03); }
+.rag-stat-hero { grid-column: 1 / -1; padding: 10px 12px; }
+.rag-stat-label { font-size: 11px; color: var(--text-300); }
+.rag-stat-value { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-100); font-variant-numeric: tabular-nums; }
+.rag-stat-hero .rag-stat-value { font-size: 26px; }
+
+.rag-refusal {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,102,144,0.35);
+  background: rgba(255,102,144,0.07);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-200);
+}
+.rag-refusal i { color: var(--rose); margin-top: 4px; }
+
+.rag-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 16px;
+  border-top: 1px solid var(--border);
+}
+.rag-prompts-label { font-size: 13px; color: var(--text-300); margin-right: 2px; }
+.rag-prompt {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  padding: 8px 12px;
+  min-height: 36px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-200);
+  cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.rag-prompt:hover { border-color: var(--accent); color: var(--text-100); }
+.rag-prompt:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.rag-prompt.is-current { background: rgba(124,106,255,0.16); border-color: var(--accent); color: var(--text-100); }
+
+.rag-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+
+@media (max-width: 1000px) {
+  .rag-layout { grid-template-columns: minmax(0, 1fr); }
+  .portal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .stage-shell { padding: 0 12px; }
+  .flow-stage { padding: 6px; }
+}
+@media (max-width: 600px) {
+  .portal-grid { grid-template-columns: minmax(0, 1fr); }
+  .rag-log { height: 460px; padding: 14px; }
+  .rag-bar-row { grid-template-columns: 112px minmax(0, 1fr) 20px; }
+  .rag-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rag-prompts { padding: 12px 14px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .orb, .status-dot::after { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .rag-seg { transition: none; }
+}
+
+/* v5 additions */
+.fs-count { font-family: var(--font-sans); font-size: 12px; font-weight: 700; fill: var(--teal); }
+.fs-name-sm { font-size: 13px; }
+.fs-sub-sm { font-size: 9.5px; }
+.fs-th { font-family: var(--font-sans); font-size: 10.5px; font-weight: 600; fill: var(--text-200); }
+.fs-live { font-family: var(--font-sans); font-size: 12px; font-weight: 700; fill: var(--teal); }
+.fs-sub.fs-sub-sm { font-size: 10.5px; }
+
+.metric-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+}
+.metric-live::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: liveDot 1.8s ease-in-out infinite;
+}
+@keyframes liveDot { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+
+.portal-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.portal-head h4 { margin-bottom: 0; }
+.portal-count {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.portal-services { list-style: none; display: flex; flex-wrap: wrap; gap: 5px; }
+.portal-services li {
+  font-size: 12px;
+  line-height: 1.3;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: var(--text-200);
+  background: rgba(var(--tint),0.05);
+}
+.portal-card--more { grid-column: 1 / -1; align-items: center; border-style: dashed; border-color: var(--border-hover); }
+.portal-logo--more { display: flex; align-items: center; justify-content: center; background: rgba(124,106,255,0.14); color: var(--accent-soft); font-size: 24px; }
+
+.sync-modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+.sync-mode {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0,224,176,0.2);
+  background: rgba(0,224,176,0.04);
+}
+.sync-mode > i { margin-top: 3px; font-size: 18px; color: var(--teal); }
+.sync-mode h4 { font-size: 15px; color: var(--text-100); margin-bottom: 4px; }
+.sync-mode p { font-size: 13px; line-height: 1.55; color: var(--text-300); }
+
+.rag-explain {
+  max-width: 720px;
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(124,106,255,0.07);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-200);
+}
+.rag-explain strong { color: var(--text-100); }
+
+@media (max-width: 1000px) {
+}
+@media (max-width: 600px) {
+  .sync-modes { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .metric-live::before { animation: none; }
+}
+
+/* v7 additions */
+.platform-areas { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; max-width: 900px; }
+.platform-areas li {
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  color: var(--text-200);
+}
+.integrations-body { margin-top: 40px; }
+
+/* v8 additions */
+.hero-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 18px;
+}
+.hero-head .hero-name { font-size: 46px; margin-bottom: 2px; }
+.hero-head .hero-role { font-size: 16px; margin-bottom: 0; }
+.hero-head .hero-status { margin-bottom: 0; }
+.hero-content .hero-desc { margin-bottom: 24px; }
+@media (max-width: 600px) {
+  .hero-head .hero-name { font-size: 36px; }
+}
+
+/* Themes: dark is the default. The animation and terminal stay dark in both. */
+:root { --tint: 255,255,255; --accent-soft: #a99cff; --danger-text: #ffb3c7; --nav-bg: rgba(5,5,16,0.85); --nav-bg-solid: rgba(5,5,16,0.97); color-scheme: dark; }
+.flow-stage, .skills-terminal {
+  --bg-0: #050510; --bg-1: #0a0a1a; --bg-2: #0f0f2a;
+  --bg-card: rgba(15,15,42,0.6); --bg-glass: rgba(15,15,42,0.4);
+  --text-100: #f0f0f8; --text-200: #c8c8e0; --text-300: #9898b8; --text-400: #8a8aae;
+  --accent: #7c6aff; --teal: #00e0b0; --rose: #ff6690; --amber: #ffcc40; --cyan: #40d0e0;
+  --border: rgba(124,106,255,0.12); --border-hover: rgba(124,106,255,0.35); --glass-border: rgba(255,255,255,0.06);
+  --tint: 255,255,255; --accent-soft: #a99cff; --danger-text: #ffb3c7;
+  color: var(--text-200);
+}
+:root[data-theme="light"] {
+  --bg-0: #f5f6fb; --bg-1: #fbfbfe; --bg-2: #ffffff;
+  --bg-card: rgba(255,255,255,0.88); --bg-glass: rgba(255,255,255,0.72);
+  --text-100: #14152b; --text-200: #2c2d4a; --text-300: #4a4b68; --text-400: #5c5d7a;
+  --accent: #5a46e6; --accent-glow: rgba(90,70,230,0.22);
+  --teal: #00755f; --teal-glow: rgba(0,117,95,0.14);
+  --rose: #c11f55; --amber: #8a5f00; --cyan: #0a7285;
+  --border: rgba(70,55,190,0.18); --border-hover: rgba(70,55,190,0.42); --glass-border: rgba(20,20,60,0.1);
+  --shadow-sm: 0 2px 8px rgba(30,30,80,0.06); --shadow-md: 0 8px 28px rgba(30,30,80,0.08);
+  --shadow-lg: 0 14px 44px rgba(30,30,80,0.1); --shadow-glow: 0 0 32px rgba(90,70,230,0.1);
+  --tint: 20,20,60; --accent-soft: #5a46e6; --danger-text: #b4174b;
+  --nav-bg: rgba(245,246,251,0.88); --nav-bg-solid: rgba(245,246,251,0.98);
+  color-scheme: light;
+}
+:root[data-theme="light"] .orb { opacity: 0.16; }
+:root[data-theme="light"] body::before { opacity: 0.015; }
+.portal-logo { border: 1px solid var(--glass-border); }
+.theme-switching, .theme-switching * { transition: none !important; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-100);
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.theme-toggle:hover { border-color: var(--accent); background: rgba(124,106,255,0.08); }
+.theme-toggle:focus-visible, .nav-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Background -->
+<div class="bg-grid"></div>
+<div class="bg-gradient-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">&lt;<span>VM</span> /&gt;</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#integrations">Integrations</a></li>
+      <li><a href="#rag">AI Assistant</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode"><i class="fas fa-sun" aria-hidden="true"></i></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="stage-shell">
+    <div class="hero-head">
+      <div>
+        <h1 class="hero-name">Vinay <span class="highlight">Mathe.</span></h1>
+        <p class="hero-role"><strong>Software Engineer</strong>, frontend and backend. Now expanding into AI integration.</p>
+      </div>
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        Open to opportunities
+      </div>
+    </div>
+    <figure class="flow-stage">
+      <svg id="flowStage" role="img" aria-labelledby="flowTitle flowDesc">
+        <title id="flowTitle">How the compliance engine moves data</title>
+        <desc id="flowDesc">Data and documents flow from more than 30 services across Income Tax, GST, TAN, TRACES, GSTAT, ICAI and other portals into the compliance engine, through on-demand and scheduled syncs. Documents are stored across multiple clouds, AWS S3, Google Drive and Microsoft OneDrive, with their folder structure in MongoDB. Data is stored in structured MySQL tables that power dashboards. The engine also emails clients about deadlines and important notices, with Excel attachments.</desc>
+      </svg>
+    </figure>
+  </div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <p class="hero-desc reveal">
+          I build compliance software for CA and CS firms across India, from government portal data pipelines to multi-cloud document storage
+          and dashboards.
+        </p>
+        <div class="hero-cta reveal reveal-delay-1">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Contact Me</a>
+          <a href="#platform" class="btn btn-ghost"><i class="fas fa-code"></i> See My Work</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="hero-metrics reveal reveal-delay-3">
+          <div class="metric">
+            <div class="metric-value"><span class="count-up" data-target="3">0</span><span class="unit">+</span></div>
+            <div class="metric-label">Years Exp</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value"><span class="count-up" data-target="1100">0</span><span class="unit">+</span></div>
+            <div class="metric-label">Firms Across India</div>
+            <div class="metric-live">Still counting</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value"><span class="count-up" data-target="115" data-suffix="K">0</span><span class="unit">+</span></div>
+            <div class="metric-label">Credentials</div>
+            <div class="metric-live">Still counting</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value"><span class="count-up" data-target="6">0</span><span class="unit">+</span></div>
+            <div class="metric-label">Govt Portals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-eyebrow reveal">About</div>
+    <h2 class="section-title reveal">Turning Compliance Chaos<br>Into Clean Systems</h2>
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <p>
+          I'm a Software Engineer with 3+ years of experience building production-grade web applications.
+          I specialize in statutory compliance integration — designing systems that connect with Indian
+          government portals to automate data sync for chartered accountant and company secretary firms.
+        </p>
+        <p>
+          I build systems that sync data and documents from 6+ government portals
+          (Income Tax, GST, TAN, TRACES, GSTAT, ICAI), processing notices, orders, e-proceedings,
+          demands, returns, and filing statuses.
+        </p>
+        <p>
+          My day-to-day spans the full stack: NestJS and TypeORM on the backend, React.js and Material UI
+          on the frontend, with MySQL, MongoDB, and multi-cloud storage integrations across AWS S3,
+          Microsoft OneDrive, and Google Drive.
+        </p>
+        <p>
+          Outside work, I'm expanding into AI integration through personal projects, including
+          a RAG assistant that answers questions from compliance data.
+        </p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card reveal">
+          <div class="about-card-icon"><i class="fas fa-window-maximize"></i></div>
+          <div class="about-card-title">Frontend</div>
+          <div class="about-card-desc">React, TypeScript and Material UI for dashboards, dynamic forms and data grids</div>
+        </div>
+        <div class="about-card reveal reveal-delay-1">
+          <div class="about-card-icon"><i class="fas fa-server"></i></div>
+          <div class="about-card-title">Backend</div>
+          <div class="about-card-desc">NestJS, TypeORM and MySQL for REST APIs, job queues and batch processing</div>
+        </div>
+        <div class="about-card reveal reveal-delay-2">
+          <div class="about-card-icon"><i class="fas fa-plug"></i></div>
+          <div class="about-card-title">Integrations</div>
+          <div class="about-card-desc">Government portals, AWS S3, Google Drive and Microsoft OneDrive</div>
+        </div>
+        <div class="about-card reveal reveal-delay-3">
+          <div class="about-card-icon"><i class="fas fa-robot"></i></div>
+          <div class="about-card-title">AI Integration</div>
+          <div class="about-card-desc">Personal projects with RAG and the Claude API</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ PLATFORM ═══════════ -->
+<section class="section" id="platform">
+  <div class="container">
+    <div class="section-eyebrow reveal">Product Work</div>
+    <h2 class="section-title reveal">Compliance Platform</h2>
+    <p class="section-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
+    <ul class="platform-areas reveal" aria-label="Areas of the platform">
+      <li>Tasks &amp; Services</li>
+      <li>Recurring Compliance</li>
+      <li>Clients &amp; Client Groups</li>
+      <li>Billing &amp; Invoicing</li>
+      <li>Timesheets</li>
+      <li>Attendance &amp; Shifts</li>
+      <li>Leads</li>
+      <li>DSC Register</li>
+      <li>Document In/Out</li>
+      <li>Expenditure</li>
+      <li>Reports</li>
+      <li>Email &amp; WhatsApp</li>
+      <li>Cloud Storage</li>
+      <li>Government Portal Sync</li>
+    </ul>
+
+    <!-- Modules -->
+    <h3 class="modules-heading reveal"><i class="fas fa-cubes"></i> Key Modules</h3>
+    <div class="modules-grid">
+      <div class="mod-card reveal">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-building-columns"></i></div>
+          <div class="mod-name">Statutory Compliance Integration</div>
+        </div>
+        <div class="mod-desc">End-to-end portal integration across 6+ government portals with credential management and batch sync</div>
+        <ul class="mod-list">
+          <li>80K+ PAN, 30K+ GST, 5.5K+ TAN/TDS credentials</li>
+          <li>Database-backed job queue with p-limit throttling</li>
+          <li>Cross-portal data integration (legacy + current)</li>
+          <li>Download state machine for GST document sync</li>
+          <li>AES encryption for stored credentials</li>
+          <li>Parameterized queries (SQL injection fix)</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-1">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="mod-name">Compliance Dashboards</div>
+        </div>
+        <div class="mod-desc">Compliance dashboards with org-wise and client-wise aggregation views</div>
+        <ul class="mod-list">
+          <li>Financial year filtering and drill-down navigation</li>
+          <li>Summary widgets to individual records</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-2">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-file-import"></i></div>
+          <div class="mod-name">Bulk Import Engine</div>
+        </div>
+        <div class="mod-desc">Excel-based bulk import for tasks, clients, and credentials with validation</div>
+        <ul class="mod-list">
+          <li>10,000+ rows per batch with schema validation</li>
+          <li>Recurring and non-recurring job types</li>
+          <li>Duplicate detection and transactional rollback</li>
+          <li>Row-level error reporting</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-1">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+          <div class="mod-name">Multi-Cloud Storage Pipeline</div>
+        </div>
+        <div class="mod-desc">Unified document pipeline across AWS S3, OneDrive, and Google Drive, with folder structure in MongoDB</div>
+        <ul class="mod-list">
+          <li>Centralized session management across modules</li>
+          <li>Dockerized compliance browser sync</li>
+          <li>Telegram-based batch monitoring</li>
+          <li>PM2-managed production deployment</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-2">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-cogs"></i></div>
+          <div class="mod-name">Super Admin &amp; Config</div>
+        </div>
+        <div class="mod-desc">Cross-instance configuration with organization-scoped service overrides</div>
+        <ul class="mod-list">
+          <li>Frozen snapshots with restore capability</li>
+          <li>Production-call safeguards for data sync</li>
+          <li>Service cloning and recurring scheduling</li>
+          <li>Multi-level checklists and stage tracking</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-3">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-bell"></i></div>
+          <div class="mod-name">Notifications &amp; Integrations</div>
+        </div>
+        <div class="mod-desc">Email notifications, ICAI E-Diary portal, and UDIN validation</div>
+        <ul class="mod-list">
+          <li>Cron + API-triggered email via AWS SES</li>
+          <li>EJS templates with dynamic Excel attachments</li>
+          <li>ICAI E-Diary as standalone Node.js service</li>
+          <li>UDIN validation linked to task workflows</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ INTEGRATIONS ═══════════ -->
+<section class="section" id="integrations">
+  <div class="container">
+    <div class="section-eyebrow reveal">Integrations</div>
+    <h2 class="section-title reveal">6+ Portals, 30+ Services</h2>
+    <p class="section-desc reveal">Indian tax and professional portals that accountants and company secretaries use every day. Data and documents sync from each one, on demand or on a schedule.</p>
+    <div class="integrations-body reveal" id="portals">
+      <div class="portal-grid">
+        <article class="portal-card" id="portal-income-tax">
+          <div class="portal-logo"><img src="assets/logos/income-tax.png" alt="Income Tax Department logo" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>Income Tax (PAN)</h4><span class="portal-count">9 services</span></div>
+            <ul class="portal-services"><li>e-Proceedings</li><li>Returns</li><li>Returns with Attachments</li><li>Forms</li><li>My CAs</li><li>Outstanding Demand</li><li>e-Challan</li><li>e-Campaign</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-gst">
+          <div class="portal-logo"><img src="assets/logos/gst.png" alt="Goods and Services Tax logo" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>GST</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>Notices &amp; Orders</li><li>Additional Notices</li><li>Demand</li><li>Ledger Balance</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-tan">
+          <div class="portal-logo"><img src="assets/logos/income-tax.png" alt="Income Tax Department logo, used for TAN e-Filing" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>TAN</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>e-Proceedings</li><li>Forms</li><li>AR (CA)</li><li>e-Challan</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-traces">
+          <div class="portal-logo"><img src="assets/logos/traces.png" alt="TDS Centralized Processing Cell logo" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>TRACES</h4><span class="portal-count">6 services</span></div>
+            <ul class="portal-services"><li>Inbox</li><li>Statements</li><li>Outstanding Demand</li><li>Bank Account</li><li>DSC Register</li><li>Lower/No Deduction Certificates</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-gstat">
+          <div class="portal-logo"><img src="assets/logos/gstat.png" alt="GST Appellate Tribunal logo" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>GSTAT</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>E-Filed Cases</li><li>Payment Online</li><li>My Appeal</li><li>Transaction History</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-icai">
+          <div class="portal-logo"><img src="assets/logos/icai.png" alt="Institute of Chartered Accountants of India logo" loading="lazy"></div>
+          <div>
+            <div class="portal-head"><h4>ICAI</h4><span class="portal-count">3 services</span></div>
+            <ul class="portal-services"><li>E-Diary Timesheets</li><li>E-Diary Attendance</li><li>UDIN</li></ul>
+          </div>
+        </article>
+        <article class="portal-card portal-card--more" id="portal-more">
+          <div class="portal-logo portal-logo--more"><i class="fas fa-plus" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>And more</h4></div>
+            <p>More portals and services beyond the ones listed here.</p>
+          </div>
+        </article>
+      </div>
+      <p class="portal-note">Logos belong to their respective organizations and are shown only to identify the integrations.</p>
+      <div class="sync-modes">
+        <div class="sync-mode"><i class="fas fa-bolt" aria-hidden="true"></i><div><h4>On-demand sync</h4><p>Sync one client or many in bulk at any time, and choose exactly which services to fetch.</p></div></div>
+        <div class="sync-mode"><i class="fas fa-clock" aria-hidden="true"></i><div><h4>Scheduled sync</h4><p>Each organization sets its own schedule, and client data refreshes automatically.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ RAG ASSISTANT ═══════════ -->
+<section class="section" id="rag">
+  <div class="container">
+    <div class="section-eyebrow reveal">Personal Project: AI Integration</div>
+    <h2 class="section-title reveal">Ask in Plain English.<br>Answered From Live Data.</h2>
+    <p class="rag-explain reveal"><strong>RAG (Retrieval-Augmented Generation)</strong> finds the right records first, then gives them to the AI, so every answer comes from real data instead of a guess.</p>
+
+    <div class="rag-layout">
+      <ul class="rag-steps reveal" id="ragSteps">
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-comments" aria-hidden="true"></i></span><div><h4>Understands plain English</h4><p>Ask naturally, including follow-ups like "break those down".</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Respects access</h4><p>Answers only from the clients each user is allowed to see.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Always up to date</h4><p>Every answer comes from current records and matches the dashboards.</p></div></li>
+        <li class="rag-step">
+          <span class="rag-step-num"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
+          <div>
+            <h4>Protects sensitive data</h4>
+            <p>Credentials and other sensitive fields stay out of every answer.</p>
+            <div class="rag-fields" aria-label="Example fields">
+              <span class="rag-field"><i class="fas fa-check"></i>client</span>
+              <span class="rag-field"><i class="fas fa-check"></i>gstin</span>
+              <span class="rag-field"><i class="fas fa-check"></i>due_date</span>
+              <span class="rag-field is-blocked"><i class="fas fa-xmark"></i>portal_username</span>
+              <span class="rag-field is-blocked"><i class="fas fa-xmark"></i>password</span>
+            </div>
+          </div>
+        </li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-chart-column" aria-hidden="true"></i></span><div><h4>Clear answers, remembered</h4><p>Text, tables, charts and stats, and the conversation picks up where it left off.</p></div></li>
+      </ul>
+
+      <div class="rag-chat reveal reveal-delay-1">
+        <div class="rag-chat-head">
+          <span class="rag-chat-title">AI Assistant demo</span>
+          <span class="rag-sample">Sample data</span>
+        </div>
+        <div class="rag-log" id="ragLog" tabindex="0" aria-label="Sample conversation"></div>
+        <div class="rag-prompts" id="ragPrompts">
+          <span class="rag-prompts-label">Try:</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rag-tech reveal">
+      <span class="next-tech">Claude API</span>
+      <span class="next-tech">Tool Use</span>
+      <span class="next-tech">RAG</span>
+      <span class="next-tech">SSE Streaming</span>
+      <span class="next-tech">Prompt Caching</span>
+      <span class="next-tech">NestJS</span>
+      <span class="next-tech">TypeORM</span>
+      <span class="next-tech">MySQL</span>
+      <span class="next-tech">React + MUI</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-eyebrow reveal">Career</div>
+    <h2 class="section-title reveal">Professional Experience</h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-date-text">Apr 2024 — Present</div>
+        </div>
+        <div class="tl-line">
+          <div class="tl-dot"></div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-role">Software Engineer</div>
+          <div class="tl-company">SaaS product company — Hyderabad, India</div>
+          <ul class="tl-points">
+            <li>Worked across frontend and backend on government portal integrations</li>
+            <li>Built batch processing pipelines for 115,000+ portal credentials across 1,100+ firms</li>
+            <li>Built multi-cloud document pipeline across AWS S3, OneDrive, and Google Drive</li>
+            <li>Developed compliance dashboards with drill-down analytics</li>
+            <li>Implemented security hardening: parameterized queries, AES encryption</li>
+            <li>Integrated ICAI E-Diary and UDIN portals with internal task systems</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-date-text">Mar 2023 — Apr 2024</div>
+        </div>
+        <div class="tl-line">
+          <div class="tl-dot"></div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-role">Junior Software Engineer</div>
+          <div class="tl-company">SaaS product company — Hyderabad, India</div>
+          <ul class="tl-points">
+            <li>Built reusable, responsive UI components using React.js, TypeScript, and Material UI</li>
+            <li>Developed and integrated backend APIs using NestJS, TypeORM, and MySQL</li>
+            <li>Implemented dashboards, dynamic forms, and data grids for compliance data</li>
+            <li>Optimized frontend performance and improved overall UX</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-eyebrow reveal">Tech Stack</div>
+    <h2 class="section-title reveal">Tools &amp; Technologies</h2>
+    <p class="section-desc reveal">Technologies I use to build full-stack applications.</p>
+
+    <div class="skills-terminal reveal">
+      <div class="terminal-header">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <span class="terminal-title">vinay@dev:~$ cat skills.json</span>
+      </div>
+      <div class="terminal-body">
+        <div class="skills-grid">
+          <div class="skill-group sg-1">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-palette"></i></div>
+              frontend
+            </div>
+            <div class="skill-pills">
+              <span class="pill">React.js</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">JavaScript (ES6+)</span>
+              <span class="pill">Redux Toolkit</span>
+              <span class="pill">Material-UI</span>
+              <span class="pill">React Hook Form</span>
+            </div>
+          </div>
+          <div class="skill-group sg-2">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-server"></i></div>
+              backend
+            </div>
+            <div class="skill-pills">
+              <span class="pill">Node.js</span>
+              <span class="pill">NestJS</span>
+              <span class="pill">Express.js</span>
+              <span class="pill">TypeORM</span>
+              <span class="pill">REST APIs</span>
+              <span class="pill">MySQL</span>
+              <span class="pill">MongoDB</span>
+              <span class="pill">JWT / RBAC</span>
+            </div>
+          </div>
+          <div class="skill-group sg-3">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-gears"></i></div>
+              automation
+            </div>
+            <div class="skill-pills">
+              <span class="pill">Batch Processing</span>
+              <span class="pill">Cron / Node-Cron</span>
+              <span class="pill">Cheerio</span>
+              <span class="pill">Axios</span>
+            </div>
+          </div>
+          <div class="skill-group sg-4">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-cloud-arrow-up"></i></div>
+              cloud
+            </div>
+            <div class="skill-pills">
+              <span class="pill">AWS S3</span>
+              <span class="pill">AWS SES</span>
+              <span class="pill">Google Drive API</span>
+              <span class="pill">Microsoft Graph API</span>
+            </div>
+          </div>
+          <div class="skill-group sg-5">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-wrench"></i></div>
+              tools &amp; infra
+            </div>
+            <div class="skill-pills">
+              <span class="pill">Git</span>
+              <span class="pill">Docker</span>
+              <span class="pill">PM2</span>
+              <span class="pill">Telegram Bot API</span>
+            </div>
+          </div>
+          <div class="skill-group sg-1">
+            <div class="skill-group-header">
+              <div class="icon"><i class="fas fa-robot"></i></div>
+              ai integration
+            </div>
+            <div class="skill-pills">
+              <span class="pill">Claude API</span>
+              <span class="pill">RAG</span>
+              <span class="pill">Tool Use</span>
+              <span class="pill">SSE Streaming</span>
+              <span class="pill">Prompt Caching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="justify-content:center">Contact</div>
+    <h2 class="section-title reveal" style="text-align:center">Let's Connect</h2>
+    <p class="section-desc reveal" style="text-align:center;margin:0 auto">
+      Open to opportunities and conversations about frontend, backend and integrating AI into applications.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:mvinay.vn@gmail.com" class="contact-link reveal">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">mvinay.vn@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/mvinay01" target="_blank" class="contact-link reveal reveal-delay-1">
+        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">linkedin.com/in/mvinay01</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-text">&copy; 2026 Vinay Mathe</p>
+      <div class="footer-socials">
+        <a href="mailto:mvinay.vn@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mvinay01" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+});
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  const icon = navToggle.querySelector('i');
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-xmark');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.querySelector('i').classList.add('fa-bars');
+    navToggle.querySelector('i').classList.remove('fa-xmark');
+  });
+});
+
+// Intersection Observer — reveal on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Count-up animation
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = 'true';
+      const target = parseInt(entry.target.dataset.target);
+      const suffix = entry.target.dataset.suffix || '';
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const current = Math.round(eased * target);
+        entry.target.textContent = current.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+// Light / dark theme switch
+(function () {
+  const root = document.documentElement;
+  const button = document.getElementById('themeToggle');
+  const meta = document.getElementById('themeColor');
+  const sync = () => {
+    const light = root.getAttribute('data-theme') === 'light';
+    button.querySelector('i').className = light ? 'fas fa-moon' : 'fas fa-sun';
+    const label = light ? 'Switch to dark mode' : 'Switch to light mode';
+    button.setAttribute('aria-label', label);
+    button.title = label;
+    meta.setAttribute('content', light ? '#f5f6fb' : '#050510');
+  };
+  button.addEventListener('click', () => {
+    const toLight = root.getAttribute('data-theme') !== 'light';
+    // Switch instantly so nothing fades through muddy in-between colours
+    root.classList.add('theme-switching');
+    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-switching')));
+    if (toLight) root.setAttribute('data-theme', 'light');
+    else root.removeAttribute('data-theme');
+    try { localStorage.setItem('theme', toLight ? 'light' : 'dark'); } catch (e) {}
+    sync();
+  });
+  sync();
+})();
+
+// Hero data-flow stage
+(function () {
+  const svg = document.getElementById('flowStage');
+  if (!svg) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const narrow = window.matchMedia('(max-width: 720px)');
+  const keep = [...svg.children];
+
+  const AWS_PATH = 'M180.41 203.01c-.72 22.65 10.6 32.68 10.88 39.05a8.164 8.164 0 0 1-4.1 6.27l-12.8 8.96a10.66 10.66 0 0 1-5.63 1.92c-.43-.02-8.19 1.83-20.48-25.61a78.608 78.608 0 0 1-62.61 29.45c-16.28.89-60.4-9.24-58.13-56.21-1.59-38.28 34.06-62.06 70.93-60.05 7.1.02 21.6.37 46.99 6.27v-15.62c2.69-26.46-14.7-46.99-44.81-43.91-2.4.01-19.4-.5-45.84 10.11-7.36 3.38-8.3 2.82-10.75 2.82-7.41 0-4.36-21.48-2.94-24.2 5.21-6.4 35.86-18.35 65.94-18.18a76.857 76.857 0 0 1 55.69 17.28 70.285 70.285 0 0 1 17.67 52.36l-.01 69.29zM93.99 235.4c32.43-.47 46.16-19.97 49.29-30.47 2.46-10.05 2.05-16.41 2.05-27.4-9.67-2.32-23.59-4.85-39.56-4.87-15.15-1.14-42.82 5.63-41.74 32.26-1.24 16.79 11.12 31.4 29.96 30.48zm170.92 23.05c-7.86.72-11.52-4.86-12.68-10.37l-49.8-164.65c-.97-2.78-1.61-5.65-1.92-8.58a4.61 4.61 0 0 1 3.86-5.25c.24-.04-2.13 0 22.25 0 8.78-.88 11.64 6.03 12.55 10.37l35.72 140.83 33.16-140.83c.53-3.22 2.94-11.07 12.8-10.24h17.16c2.17-.18 11.11-.5 12.68 10.37l33.42 142.63L420.98 80.1c.48-2.18 2.72-11.37 12.68-10.37h19.72c.85-.13 6.15-.81 5.25 8.58-.43 1.85 3.41-10.66-52.75 169.9-1.15 5.51-4.82 11.09-12.68 10.37h-18.69c-10.94 1.15-12.51-9.66-12.68-10.75L328.67 110.7l-32.78 136.99c-.16 1.09-1.73 11.9-12.68 10.75h-18.3zm273.48 5.63c-5.88.01-33.92-.3-57.36-12.29a12.802 12.802 0 0 1-7.81-11.91v-10.75c0-8.45 6.2-6.9 8.83-5.89 10.04 4.06 16.48 7.14 28.81 9.6 36.65 7.53 52.77-2.3 56.72-4.48 13.15-7.81 14.19-25.68 5.25-34.95-10.48-8.79-15.48-9.12-53.13-21-4.64-1.29-43.7-13.61-43.79-52.36-.61-28.24 25.05-56.18 69.52-55.95 12.67-.01 46.43 4.13 55.57 15.62 1.35 2.09 2.02 4.55 1.92 7.04v10.11c0 4.44-1.62 6.66-4.87 6.66-7.71-.86-21.39-11.17-49.16-10.75-6.89-.36-39.89.91-38.41 24.97-.43 18.96 26.61 26.07 29.7 26.89 36.46 10.97 48.65 12.79 63.12 29.58 17.14 22.25 7.9 48.3 4.35 55.44-19.08 37.49-68.42 34.44-69.26 34.42zm40.2 104.86c-70.03 51.72-171.69 79.25-258.49 79.25A469.127 469.127 0 0 1 2.83 327.46c-6.53-5.89-.77-13.96 7.17-9.47a637.37 637.37 0 0 0 316.88 84.12 630.22 630.22 0 0 0 241.59-49.55c11.78-5 21.77 7.8 10.12 16.38zm29.19-33.29c-8.96-11.52-59.28-5.38-81.81-2.69-6.79.77-7.94-5.12-1.79-9.47 40.07-28.17 105.88-20.1 113.44-10.63 7.55 9.47-2.05 75.41-39.56 106.91-5.76 4.87-11.27 2.3-8.71-4.1 8.44-21.25 27.39-68.49 18.43-80.02z';
+  const MYSQL_PATH = 'M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z';
+  const MONGO_PATH = 'M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z';
+  const DRIVE_PATHS = [
+    ['m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z', '#0066da'],
+    ['m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z', '#00ac47'],
+    ['m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z', '#ea4335'],
+    ['m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z', '#00832d'],
+    ['m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z', '#2684fc'],
+    ['m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z', '#ffba00'],
+  ];
+
+  const PORTALS = [
+    { id: 'income-tax', name: 'Income Tax', count: 9, sub: 'e-Proceedings · Returns · Forms +6 more', logo: 'income-tax', color: '#5b9fe8' },
+    { id: 'gst', name: 'GST', count: 5, sub: 'Notices & Orders · Demand +3 more', logo: 'gst', color: '#f09a4f' },
+    { id: 'tan', name: 'TAN', count: 5, sub: 'e-Proceedings · Forms +3 more', logo: 'income-tax', color: '#5b9fe8' },
+    { id: 'traces', name: 'TRACES', count: 6, sub: 'Inbox · Statements · Demand +3 more', logo: 'traces', color: '#3ec47a' },
+    { id: 'gstat', name: 'GSTAT', count: 5, sub: 'E-Filed Cases · Payments +3 more', logo: 'gstat', color: '#d6ad52' },
+    { id: 'icai', name: 'ICAI', count: 3, sub: 'E-Diary Timesheets · Attendance +1 more', logo: 'icai', color: '#d98468' },
+  ];
+
+  function el(tag, attrs, parent, text) {
+    const node = document.createElementNS(NS, tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => node.setAttribute(k, v));
+    if (text !== undefined) node.textContent = text;
+    if (parent) parent.appendChild(node);
+    return node;
+  }
+
+  const drawAws = (g) => {
+    const s = el('g', { transform: 'translate(-21 -17) scale(0.0656)' }, g);
+    el('path', { d: AWS_PATH, fill: '#232f3e', 'clip-path': 'url(#fsAwsText)' }, s);
+    el('path', { d: AWS_PATH, fill: '#ff9900', 'clip-path': 'url(#fsAwsSmile)' }, s);
+  };
+  const drawDrive = (g) => {
+    const s = el('g', { transform: 'translate(-20 -18) scale(0.46)' }, g);
+    DRIVE_PATHS.forEach(([d, fill]) => el('path', { d, fill }, s));
+  };
+  const drawMicrosoft = (g) => {
+    [[-17, -17, '#f25022'], [1, -17, '#7fba00'], [-17, 1, '#00a4ef'], [1, 1, '#ffb900']].forEach(([x, y, fill]) =>
+      el('rect', { x, y, width: 16, height: 16, fill }, g));
+  };
+  const drawMongo = (g) => {
+    el('path', { d: MONGO_PATH, fill: '#47a248', transform: 'translate(-20 -20) scale(1.67)' }, g);
+  };
+  const drawMail = (g) => {
+    el('rect', { x: -18, y: -13, width: 36, height: 26, rx: 4, fill: '#182f53' }, g);
+    el('path', { d: 'M-15-9 0 3 15-9', fill: 'none', stroke: '#ffcc40', 'stroke-width': 2.4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+    el('rect', { x: 4, y: 3, width: 21, height: 14, rx: 2.5, fill: '#148a50', stroke: '#fff', 'stroke-width': 1.5 }, g);
+    el('text', { x: 14.5, y: 13, 'text-anchor': 'middle', class: 'fs-chip' }, g, 'XLS');
+  };
+  const drawClients = (g) => {
+    [[-9, 0.85], [9, 0.85], [0, 1]].forEach(([x, k]) => {
+      const p = el('g', { transform: `translate(${x} 0) scale(${k})` }, g);
+      el('circle', { cx: 0, cy: -8, r: 6.5, fill: '#182f53', stroke: '#fff', 'stroke-width': 1.5 }, p);
+      el('path', { d: 'M-11 14c0-8 4.5-12 11-12s11 4 11 12z', fill: '#182f53', stroke: '#fff', 'stroke-width': 1.5 }, p);
+    });
+  };
+  const drawPlus = (g) => {
+    el('path', { d: 'M0-13V13M-13 0H13', stroke: '#7c6aff', 'stroke-width': 5, 'stroke-linecap': 'round', fill: 'none' }, g);
+  };
+
+  const CLOUDS = [
+    { name: 'AWS S3', sub: 'Documents', draw: drawAws, color: '#ff9900' },
+    { name: 'Google Drive', sub: 'Drive API', draw: drawDrive, color: '#2684fc' },
+    { name: 'Microsoft OneDrive', short: 'OneDrive', sub: 'Graph API', draw: drawMicrosoft, color: '#00a4ef' },
+  ];
+  const MONGO = { name: 'MongoDB', sub: 'Folder structure of documents', draw: drawMongo, color: '#47a248' };
+  const MAIL = { name: 'Email alerts', sub: 'Deadlines · Notices · Excel', draw: drawMail, color: '#ffcc40' };
+  const CLIENTS = { name: 'Clients', sub: 'Notified before due dates', draw: drawClients, color: '#ffcc40' };
+  const MYSQL_COLOR = '#2fb6d6';
+
+  function wideLayout() {
+    const hub = { x: 690, y: 340, r: 84 };
+    const rowY = (i) => 76 + i * 88;
+    const paths = [];
+    const nodes = [];
+    const lineStart = 362;
+    PORTALS.forEach((p, i) => {
+      const y = rowY(i);
+      nodes.push({ ...p, x: 49, y, size: 50, label: 'right', href: `#portal-${p.id}` });
+      const dy = (i - 3) * 22;
+      const ex = hub.x - Math.sqrt(hub.r * hub.r - dy * dy);
+      paths.push({ d: `M${lineStart} ${y}C490 ${y} 510 ${hub.y + dy} ${ex} ${hub.y + dy}`, color: p.color, kind: 'in', i, dot: [lineStart, y] });
+    });
+    const moreY = rowY(6);
+    nodes.push({ id: 'more', name: 'And more', sub: 'More portals and services', draw: drawPlus, color: '#7c6aff', x: 49, y: moreY, size: 50, label: 'right', href: '#portal-more' });
+    const mdy = 66;
+    paths.push({ d: `M${lineStart} ${moreY}C490 ${moreY} 510 ${hub.y + mdy} ${hub.x - Math.sqrt(hub.r * hub.r - mdy * mdy)} ${hub.y + mdy}`, color: '#7c6aff', kind: 'in', i: 6, dot: [lineStart, moreY], dash: '5 6' });
+
+    const out = (ex, ey, dy, color, kind, i) => {
+      const sx = hub.x + Math.sqrt(hub.r * hub.r - dy * dy);
+      paths.push({ d: `M${sx} ${hub.y + dy}C${sx + 70} ${hub.y + dy} ${ex - 70} ${ey} ${ex} ${ey}`, color, kind, i });
+    };
+    CLOUDS.forEach((c, i) => {
+      const y = rowY(i);
+      nodes.push({ ...c, x: 930, y, size: 50, label: 'right' });
+      out(896, y, [-62, -40, -18][i], c.color, 'cloud', i);
+      paths.push({ d: `M1128 ${y}C1178 ${y} 1178 164 1218 164`, color: c.color, kind: 'mongo', i });
+    });
+    nodes.push({ ...MONGO, x: 1250, y: 164, size: 50, label: 'right' });
+
+    out(892, 416, 18, MYSQL_COLOR, 'data', 0);
+    paths.push({ d: 'M1216 416L1250 416', color: MYSQL_COLOR, kind: 'dash', i: 0 });
+
+    nodes.push({ ...MAIL, x: 930, y: 590, size: 50, label: 'right' });
+    nodes.push({ ...CLIENTS, x: 1295, y: 590, size: 50, label: 'right' });
+    out(896, 590, 56, MAIL.color, 'mail', 0);
+    paths.push({ d: 'M1156 590L1262 590', color: MAIL.color, kind: 'alert', i: 0 });
+
+    paths.push({ d: 'M690 126L690 256', color: '#00e0b0', kind: 'sync', i: 0 });
+
+    return {
+      w: 1500, h: 650, hub, nodes, paths,
+      heads: [
+        [24, 28, 'start', '6+ GOVERNMENT PORTALS · 30+ SERVICES'],
+        [382, 28, 'start', 'DATA + DOCUMENTS'],
+        [690, 28, 'middle', 'SYNC MODES'],
+        [905, 28, 'start', 'MULTI-CLOUD DOCUMENT STORAGE'],
+        [1225, 28, 'start', 'FOLDER STRUCTURE'],
+        [896, 336, 'start', 'STRUCTURED DATA'],
+        [905, 544, 'start', 'NOTIFICATIONS'],
+      ],
+      legend: [396, 48],
+      pills: [
+        { x: 587, y: 40, w: 206, h: 40, icon: 'bolt', name: 'On-demand sync', sub: 'One client or bulk, anytime' },
+        { x: 587, y: 86, w: 206, h: 40, icon: 'clock', name: 'Scheduled sync', sub: 'Automatic, per organization' },
+      ],
+      cards: { mysql: { x: 896, y: 348, w: 320, h: 136 }, dash: { x: 1250, y: 348, w: 240, h: 136 } },
+      tree: { x: 1285, y: 206 },
+      foot: [
+        [690, 448, '1,100+ firms across India', 'fs-sub fs-halo'],
+        [690, 465, '115K+ credentials', 'fs-sub fs-halo'],
+        [690, 483, 'and still counting', 'fs-live fs-halo'],
+      ],
+    };
+  }
+
+  function narrowLayout() {
+    const hub = { x: 200, y: 372, r: 66 };
+    const cols = [70, 200, 330];
+    const paths = [];
+    const nodes = [];
+    PORTALS.forEach((p, i) => {
+      const row = i < 3 ? 0 : 1;
+      const x = cols[i % 3];
+      const y = row ? 176 : 66;
+      nodes.push({ ...p, x, y, size: 52, label: 'below', sub: `${p.count} services`, count: 0, href: `#portal-${p.id}` });
+      const ex = hub.x + (i - 2.5) * 13;
+      const ey = hub.y - Math.sqrt(hub.r * hub.r - (ex - hub.x) * (ex - hub.x));
+      if (row === 0) {
+        const gap = i === 0 ? 135 : 265;
+        paths.push({ d: `M${x} 128C${x} 146 ${gap} 138 ${gap} 160L${gap} 232C${gap} 262 ${ex} 270 ${ex} ${ey}`, color: p.color, kind: 'in', i });
+      } else {
+        paths.push({ d: `M${x} 238C${x} 262 ${ex} 268 ${ex} ${ey}`, color: p.color, kind: 'in', i });
+      }
+    });
+    CLOUDS.forEach((c, i) => {
+      nodes.push({ ...c, x: cols[i], y: 552, size: 52, label: 'below', sub: '', name: c.short || c.name });
+      const sx = hub.x + (i - 1) * 34;
+      const sy = hub.y + Math.sqrt(hub.r * hub.r - (sx - hub.x) * (sx - hub.x));
+      paths.push({ d: `M${sx} ${sy}C${sx} ${sy + 50} ${cols[i]} 480 ${cols[i]} 524`, color: c.color, kind: 'cloud', i });
+      paths.push({ d: `M${cols[i]} 604C${cols[i]} 625 200 615 200 636`, color: c.color, kind: 'mongo', i });
+    });
+    nodes.push({ ...MONGO, x: 200, y: 664, size: 52, label: 'below', sub: 'Folder structure' });
+    paths.push({ d: `M${hub.x - 52} ${hub.y + 40}C70 440 18 470 18 560L18 800C18 815 26 818 36 818`, color: MYSQL_COLOR, kind: 'data', i: 0 });
+    paths.push({ d: 'M200 878L200 906', color: MYSQL_COLOR, kind: 'dash', i: 0 });
+    nodes.push({ ...MAIL, x: 290, y: 1092, size: 52, label: 'below', sub: 'Deadlines · Notices · Excel' });
+    nodes.push({ ...CLIENTS, x: 110, y: 1092, size: 52, label: 'below', sub: 'Notified on time' });
+    paths.push({ d: `M${hub.x + 52} ${hub.y + 40}C330 440 384 470 384 560L384 1050C384 1078 352 1092 320 1092`, color: MAIL.color, kind: 'mail', i: 0 });
+    paths.push({ d: 'M262 1092L138 1092', color: MAIL.color, kind: 'alert', i: 0 });
+    return {
+      w: 400, h: 1160, hub, nodes, paths,
+      heads: [
+        [200, 18, 'middle', '6+ GOVERNMENT PORTALS · 30+ SERVICES'],
+        [376, 516, 'end', 'MULTI-CLOUD DOCUMENT STORAGE'],
+        [376, 748, 'end', 'STRUCTURED DATA'],
+        [376, 1044, 'end', 'NOTIFICATIONS'],
+      ],
+      pills: [],
+      cards: { mysql: { x: 36, y: 758, w: 328, h: 120 }, dash: { x: 36, y: 906, w: 328, h: 112 } },
+      foot: [
+        [200, 256, '+ more portals and services', 'fs-sub fs-halo'],
+        [200, 34, 'On-demand + scheduled sync', 'fs-live fs-halo'],
+        [200, 458, '1,100+ firms across India', 'fs-sub fs-halo'],
+        [200, 474, '115K+ credentials, still counting', 'fs-sub fs-halo'],
+      ],
+    };
+  }
+
+  function docIcon(parent, label, band) {
+    const g = el('g', { opacity: 0 }, parent);
+    const s = el('g', { transform: `scale(${narrow.matches ? 0.5 : 0.58})` }, g);
+    el('path', { d: 'M-11-16H4l9 9V15a2 2 0 0 1-2 2H-11a2 2 0 0 1-2-2V-14a2 2 0 0 1 2-2z', fill: '#fff' }, s);
+    el('path', { d: 'M4-16l9 9H4z', fill: '#c9c9dc' }, s);
+    el('rect', { x: -13, y: 0, width: 26, height: 12, rx: 2, fill: band }, s);
+    el('text', { x: 0, y: 9, 'text-anchor': 'middle', class: 'fs-chip' }, s, label);
+    return g;
+  }
+  function recordGlyph(g) {
+    el('rect', { x: -14, y: -10, width: 28, height: 20, rx: 3, fill: '#0b7f8f' }, g);
+    el('rect', { x: -14, y: -10, width: 28, height: 6, rx: 3, fill: '#3fd3e6' }, g);
+    el('path', { d: 'M-14-1H14M-14 5H14M-4-4V10M5-4V10', stroke: '#fff', 'stroke-opacity': 0.75, 'stroke-width': 1, fill: 'none' }, g);
+  }
+  function recordIcon(parent) {
+    const g = el('g', { opacity: 0 }, parent);
+    recordGlyph(el('g', { transform: `scale(${narrow.matches ? 0.52 : 0.62})` }, g));
+    return g;
+  }
+  function folderGlyph(g) {
+    el('path', { d: 'M-11-8h7l3 3H11a1.5 1.5 0 0 1 1.5 1.5V8A1.5 1.5 0 0 1 11 9.5H-11A1.5 1.5 0 0 1-12.5 8V-6.5A1.5 1.5 0 0 1-11-8z', fill: '#ffcc40' }, g);
+  }
+  function folderIcon(parent) {
+    const g = el('g', { opacity: 0 }, parent);
+    folderGlyph(el('g', { transform: 'scale(0.56)' }, g));
+    return g;
+  }
+  function mailIcon(parent, withExcel) {
+    const g = el('g', { opacity: 0 }, parent);
+    const s = el('g', { transform: 'scale(0.76)' }, g);
+    el('rect', { x: -11, y: -8, width: 22, height: 16, rx: 3, fill: '#ffcc40' }, s);
+    el('path', { d: 'M-9-5 0 2 9-5', fill: 'none', stroke: '#182f53', 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, s);
+    if (withExcel) {
+      el('rect', { x: 5, y: 1, width: 18, height: 12, rx: 2, fill: '#148a50', stroke: '#fff', 'stroke-width': 1 }, s);
+      el('text', { x: 14, y: 10, 'text-anchor': 'middle', class: 'fs-chip' }, s, 'XLS');
+    }
+    return g;
+  }
+  const makers = {
+    pdf: (p) => docIcon(p, 'PDF', '#d92d3a'),
+    xls: (p) => docIcon(p, 'XLS', '#148a50'),
+    doc: (p) => docIcon(p, 'DOC', '#2563c9'),
+    rec: (p) => recordIcon(p),
+    folder: (p) => folderIcon(p),
+    mail: (p) => mailIcon(p, false),
+    mailx: (p) => mailIcon(p, true),
+  };
+
+  function particlesFor(path) {
+    const docA = path.i % 2 === 0 ? 'pdf' : 'xls';
+    const docB = path.i % 2 === 0 ? 'xls' : 'pdf';
+    if (narrow.matches) {
+      const small = {
+        in: { dur: 4.8 + path.i * 0.5, items: ['rec', docA] },
+        cloud: { dur: 3.8 + path.i * 0.4, items: [['pdf', 'doc', 'xls'][path.i]] },
+        mongo: { dur: 3, items: ['folder'] },
+        data: { dur: 6.5, items: ['rec', 'rec'] },
+        dash: { dur: 1.8, items: ['dot'] },
+        mail: { dur: 7, items: ['mailx'] },
+        alert: { dur: 2.6, items: ['mailx'] },
+      };
+      return small[path.kind] || { dur: 2, items: [] };
+    }
+    const wide = {
+      in: { dur: 7.5 + path.i * 0.45, items: ['rec', docA, 'dot', 'rec', docB] },
+      cloud: { dur: 5.6 + path.i * 0.5, items: ['pdf', 'doc', 'xls'] },
+      mongo: { dur: 4 + path.i * 0.3, items: ['folder'] },
+      data: { dur: 5, items: ['rec', 'rec', 'rec'] },
+      dash: { dur: 2, items: ['dot', 'dot2'] },
+      mail: { dur: 6, items: ['mailx', 'mail'] },
+      alert: { dur: 4, items: ['mailx'] },
+      sync: { dur: 3.2, items: ['dot', 'dot2'] },
+    };
+    return wide[path.kind];
+  }
+
+  function addParticles(layer, path, id, still) {
+    const { dur, items } = particlesFor(path);
+    items.forEach((kind, n) => {
+      const offset = (dur * n) / items.length + (path.i || 0) * 0.37;
+      const item = kind === 'dot' ? el('circle', { r: 4, fill: path.color, opacity: 0 }, layer)
+        : kind === 'dot2' ? el('circle', { r: 2.6, fill: path.color, opacity: 0 }, layer)
+          : makers[kind](layer);
+      if (still) {
+        if (n !== items.length - 1) { item.remove(); return; }
+        const line = document.getElementById(id);
+        const pt = line.getPointAtLength(line.getTotalLength() * 0.55);
+        item.setAttribute('transform', `translate(${pt.x} ${pt.y})`);
+        item.setAttribute('opacity', 1);
+        return;
+      }
+      const motion = el('animateMotion', { dur: `${dur}s`, begin: `-${offset.toFixed(2)}s`, repeatCount: 'indefinite' }, item);
+      el('mpath', { href: `#${id}` }, motion);
+      el('animate', { attributeName: 'opacity', values: '0;1;1;0', keyTimes: '0;0.08;0.9;1', dur: `${dur}s`, begin: `-${offset.toFixed(2)}s`, repeatCount: 'indefinite' }, item);
+    });
+  }
+
+  function drawNode(layer, n) {
+    const wrap = n.href ? el('a', { href: n.href, class: 'fs-link', 'aria-label': `${n.name} details` }, layer) : el('g', {}, layer);
+    const half = n.size / 2;
+    const g = el('g', { transform: `translate(${n.x} ${n.y})` }, wrap);
+    el('rect', { class: 'fs-tile', x: -half, y: -half, width: n.size, height: n.size, rx: 12, fill: '#fff', stroke: n.color, 'stroke-opacity': 0.55, 'stroke-width': 1.5 }, g);
+    if (n.logo) {
+      const pad = 4;
+      el('image', { href: `assets/logos/${n.logo}.png`, x: -half + pad, y: -half + pad, width: n.size - pad * 2, height: n.size - pad * 2 }, g);
+    } else {
+      n.draw(el('g', { transform: `scale(${n.size / 58})` }, g));
+    }
+    if (n.label === 'right') {
+      const t = el('text', { x: half + 12, y: n.sub ? -3 : 5, class: 'fs-name' }, g, n.name);
+      if (n.count) el('tspan', { dx: 8, class: 'fs-count' }, t, `${n.count} services`);
+      if (n.sub) el('text', { x: half + 12, y: 14, class: 'fs-sub' }, g, n.sub);
+    } else {
+      el('text', { x: 0, y: half + 18, 'text-anchor': 'middle', class: 'fs-name fs-halo' }, g, n.name);
+      if (n.sub) el('text', { x: 0, y: half + 33, 'text-anchor': 'middle', class: 'fs-sub fs-halo' }, g, n.sub);
+    }
+  }
+
+  function cardFrame(layer, c, color, title, sub, drawIcon) {
+    const g = el('g', { transform: `translate(${c.x} ${c.y})` }, layer);
+    el('rect', { width: c.w, height: c.h, rx: 12, fill: '#11112f', stroke: color, 'stroke-opacity': 0.5, 'stroke-width': 1.5 }, g);
+    el('rect', { x: 9, y: 8, width: 28, height: 28, rx: 7, fill: '#fff' }, g);
+    drawIcon(el('g', { transform: 'translate(23 22)' }, g));
+    el('text', { x: 45, y: 20, class: 'fs-name fs-name-sm' }, g, title);
+    el('text', { x: 45, y: 33, class: 'fs-sub' }, g, sub);
+    return g;
+  }
+
+  function drawMysqlCard(layer, c, still) {
+    const g = cardFrame(layer, c, MYSQL_COLOR, 'MySQL', 'Data in structured tables', (i) => {
+      el('path', { d: MYSQL_PATH, fill: '#00758f', transform: 'translate(-11 -11) scale(0.92)' }, i);
+    });
+    const x0 = 9;
+    const tw = c.w - 18;
+    const top = 42;
+    const rowH = 15;
+    const cols = [['Client', 0.3], ['Case type', 0.3], ['FY', 0.14], ['Due', 0.12], ['Status', 0.14]];
+    const rows = Math.floor((c.h - top - rowH - 7) / rowH);
+    el('rect', { x: x0, y: top, width: tw, height: rowH, rx: 3, fill: MYSQL_COLOR, 'fill-opacity': 0.2 }, g);
+    if (rows > 0 && !still) {
+      const sweep = el('rect', { x: x0, y: top + rowH, width: tw, height: rowH, fill: '#00e0b0', 'fill-opacity': 0.14 }, g);
+      const ys = Array.from({ length: rows }, (_, r) => top + rowH * (r + 1));
+      el('animate', { attributeName: 'y', values: ys.join(';'), dur: `${rows * 0.9}s`, calcMode: 'discrete', repeatCount: 'indefinite' }, sweep);
+    }
+    let cx = x0;
+    const widths = [0.72, 0.5, 0.86, 0.62, 0.78, 0.44, 0.9, 0.58, 0.66, 0.8];
+    let w = 0;
+    cols.forEach(([label, share], ci) => {
+      const cw = tw * share;
+      el('text', { x: cx + 6, y: top + 11, class: 'fs-th' }, g, label);
+      for (let r = 0; r < rows; r += 1) {
+        const y = top + rowH * (r + 1);
+        if (ci === 4) {
+          el('rect', { x: cx + 6, y: y + 4, width: cw - 16, height: 7, rx: 3.5, fill: r % 2 ? '#00a98a' : '#7c6aff' }, g);
+        } else {
+          el('rect', { x: cx + 6, y: y + 5, width: (cw - 12) * widths[w % widths.length], height: 5, rx: 2.5, fill: '#fff', 'fill-opacity': 0.3 }, g);
+          w += 1;
+        }
+      }
+      cx += cw;
+    });
+    for (let r = 1; r <= rows; r += 1) {
+      el('path', { d: `M${x0} ${top + rowH * r + rowH}H${x0 + tw}`, stroke: '#fff', 'stroke-opacity': 0.07 }, g);
+    }
+  }
+
+  function drawDashCard(layer, c, still) {
+    const g = cardFrame(layer, c, '#a99cff', 'Dashboards', 'Charts · Stats · Drill-downs', (i) => {
+      [[-8, 1, 8, '#7c6aff'], [-2, -7, 16, '#00a98a'], [4, -3, 12, '#7c6aff']].forEach(([x, y, h, fill]) =>
+        el('rect', { x, y, width: 4.5, height: h, rx: 1.2, fill }, i));
+    });
+    const top = 44;
+    const avail = c.h - top - 8;
+    const tileH = (avail - 6) / 3;
+    ['Notices', 'Demands', 'Returns'].forEach((label, i) => {
+      const y = top + i * (tileH + 3);
+      el('rect', { x: 9, y, width: 74, height: tileH, rx: 5, fill: '#fff', 'fill-opacity': 0.06 }, g);
+      el('text', { x: 15, y: y + tileH / 2 + 3, class: 'fs-th' }, g, label);
+    });
+    const bx = 92;
+    const donutR = Math.min(avail / 2 - 3, 24);
+    const bw = c.w - bx - donutR * 2 - 24;
+    const base = top + avail;
+    const series = [[0.45, 0.7, 0.45], [0.75, 0.5, 0.75], [0.55, 0.9, 0.55], [0.95, 0.6, 0.95], [0.65, 0.85, 0.65], [0.8, 0.5, 0.8]];
+    const step = bw / series.length;
+    series.forEach((vals, i) => {
+      const fill = i % 2 ? '#00a98a' : '#7c6aff';
+      const hs = vals.map((v) => v * avail);
+      const bar = el('rect', { x: bx + i * step, y: base - hs[0], width: step - 4, height: hs[0], rx: 2, fill }, g);
+      if (!still) {
+        el('animate', { attributeName: 'height', values: hs.join(';'), dur: `${3.6 + i * 0.3}s`, repeatCount: 'indefinite' }, bar);
+        el('animate', { attributeName: 'y', values: hs.map((h) => base - h).join(';'), dur: `${3.6 + i * 0.3}s`, repeatCount: 'indefinite' }, bar);
+      }
+    });
+    const dx = c.w - donutR - 12;
+    const dy = top + avail / 2;
+    const circ = 2 * Math.PI * (donutR - 4);
+    el('circle', { cx: dx, cy: dy, r: donutR - 4, fill: 'none', stroke: '#00a98a', 'stroke-width': 7 }, g);
+    const arc = el('circle', { cx: dx, cy: dy, r: donutR - 4, fill: 'none', stroke: '#7c6aff', 'stroke-width': 7, 'stroke-dasharray': `${circ * 0.62} ${circ}`, transform: `rotate(-90 ${dx} ${dy})` }, g);
+    if (!still) el('animate', { attributeName: 'stroke-dasharray', values: `${circ * 0.5} ${circ};${circ * 0.68} ${circ};${circ * 0.5} ${circ}`, dur: '6s', repeatCount: 'indefinite' }, arc);
+  }
+
+  function drawPill(layer, p) {
+    const g = el('g', { transform: `translate(${p.x} ${p.y})` }, layer);
+    el('rect', { width: p.w, height: p.h, rx: 10, fill: '#0d1f2b', stroke: '#00e0b0', 'stroke-opacity': 0.5 }, g);
+    const i = el('g', { transform: `translate(20 ${p.h / 2})` }, g);
+    if (p.icon === 'bolt') {
+      el('path', { d: 'M2-9-6 2h5l-2 7 8-11H0z', fill: '#00e0b0' }, i);
+    } else {
+      el('circle', { r: 8, fill: 'none', stroke: '#00e0b0', 'stroke-width': 2 }, i);
+      el('path', { d: 'M0-4.5V0l3.5 2', fill: 'none', stroke: '#00e0b0', 'stroke-width': 2, 'stroke-linecap': 'round' }, i);
+    }
+    el('text', { x: 38, y: 17, class: 'fs-name fs-name-sm' }, g, p.name);
+    el('text', { x: 38, y: 31, class: 'fs-sub fs-sub-sm' }, g, p.sub);
+  }
+
+  function drawTree(layer, t) {
+    [[0, 'Client'], [14, 'FY 2025-26'], [28, 'Notices']].forEach(([dx, label], i) => {
+      const y = t.y + i * 18;
+      if (i) el('path', { d: `M${t.x + dx - 6} ${y - 14}V${y}H${t.x + dx}`, fill: 'none', stroke: '#fff', 'stroke-opacity': 0.25 }, layer);
+      folderGlyph(el('g', { transform: `translate(${t.x + dx + 8} ${y}) scale(0.6)` }, layer));
+      el('text', { x: t.x + dx + 20, y: y + 3.5, class: 'fs-sub' }, layer, label);
+    });
+  }
+
+  function drawHub(layer, hub, still) {
+    const glow = el('circle', { cx: hub.x, cy: hub.y, r: hub.r + 46, fill: 'url(#fsGlow)' }, layer);
+    if (!still) {
+      el('animate', { attributeName: 'opacity', values: '0.65;1;0.65', dur: '3.6s', repeatCount: 'indefinite' }, glow);
+      [0, 1.5].forEach((b) => {
+        const ring = el('circle', { cx: hub.x, cy: hub.y, r: hub.r, fill: 'none', stroke: '#7c6aff', 'stroke-width': 1.5, opacity: 0 }, layer);
+        el('animate', { attributeName: 'r', values: `${hub.r};${hub.r + 34}`, dur: '3s', begin: `-${b}s`, repeatCount: 'indefinite' }, ring);
+        el('animate', { attributeName: 'opacity', values: '0.5;0', dur: '3s', begin: `-${b}s`, repeatCount: 'indefinite' }, ring);
+      });
+    }
+    el('circle', { cx: hub.x, cy: hub.y, r: hub.r, fill: '#14123a', stroke: '#7c6aff', 'stroke-width': 2 }, layer);
+    const spin = (r, dash, color, from, to, dur) => {
+      const c = el('circle', { cx: hub.x, cy: hub.y, r, fill: 'none', stroke: color, 'stroke-width': 1.5, 'stroke-dasharray': dash, 'stroke-opacity': 0.75 }, layer);
+      if (!still) el('animateTransform', { attributeName: 'transform', type: 'rotate', from: `${from} ${hub.x} ${hub.y}`, to: `${to} ${hub.x} ${hub.y}`, dur, repeatCount: 'indefinite' }, c);
+    };
+    spin(hub.r - 9, '10 7', '#7c6aff', 0, 360, '24s');
+    spin(hub.r - 17, '3 9', '#00e0b0', 360, 0, '18s');
+    const t = el('g', { transform: `translate(${hub.x} ${hub.y}) scale(${hub.r / 88})` }, layer);
+    el('text', { x: 0, y: 1, 'text-anchor': 'middle', class: 'fs-hub-title' }, t, 'COMPLIANCE');
+    el('text', { x: 2, y: 23, 'text-anchor': 'middle', class: 'fs-hub-sub' }, t, 'ENGINE');
+  }
+
+  function render() {
+    const layout = narrow.matches ? narrowLayout() : wideLayout();
+    const still = reduced.matches;
+    svg.replaceChildren(...keep);
+    svg.setAttribute('viewBox', `0 0 ${layout.w} ${layout.h}`);
+
+    const defs = el('defs', {}, svg);
+    const grad = el('radialGradient', { id: 'fsGlow' }, defs);
+    el('stop', { offset: '55%', 'stop-color': '#7c6aff', 'stop-opacity': 0.34 }, grad);
+    el('stop', { offset: '100%', 'stop-color': '#7c6aff', 'stop-opacity': 0 }, grad);
+    const text = el('clipPath', { id: 'fsAwsText', clipPathUnits: 'userSpaceOnUse' }, defs);
+    el('rect', { x: 0, y: 0, width: 640, height: 300 }, text);
+    const smile = el('clipPath', { id: 'fsAwsSmile', clipPathUnits: 'userSpaceOnUse' }, defs);
+    el('rect', { x: 0, y: 300, width: 640, height: 212 }, smile);
+
+    const lines = el('g', {}, svg);
+    layout.paths.forEach((p, n) => {
+      const attrs = { id: `fsPath${n}`, d: p.d, fill: 'none', stroke: p.color, 'stroke-opacity': 0.36, 'stroke-width': 1.5 };
+      if (p.dash) attrs['stroke-dasharray'] = p.dash;
+      el('path', attrs, lines);
+      if (p.dot) el('circle', { cx: p.dot[0], cy: p.dot[1], r: 3, fill: p.color }, lines);
+    });
+    drawHub(el('g', {}, svg), layout.hub, still);
+    const panels = el('g', {}, svg);
+    drawMysqlCard(panels, layout.cards.mysql, still);
+    drawDashCard(panels, layout.cards.dash, still);
+    if (layout.tree) drawTree(panels, layout.tree);
+    layout.pills.forEach((p) => drawPill(panels, p));
+
+    const particles = el('g', {}, svg);
+    layout.paths.forEach((p, n) => addParticles(particles, p, `fsPath${n}`, still));
+    const nodes = el('g', {}, svg);
+    layout.nodes.forEach((n) => drawNode(nodes, n));
+    layout.heads.forEach(([x, y, anchor, label]) => el('text', { x, y, 'text-anchor': anchor, class: 'fs-head fs-halo' }, svg, label));
+    if (layout.legend) {
+      const [lx, ly] = layout.legend;
+      recordGlyph(el('g', { transform: `translate(${lx} ${ly}) scale(0.6)` }, svg));
+      el('text', { x: lx + 13, y: ly + 3.5, class: 'fs-sub' }, svg, 'Data');
+      const doc = docIcon(svg, 'PDF', '#d92d3a');
+      doc.setAttribute('opacity', 1);
+      doc.setAttribute('transform', `translate(${lx + 62} ${ly}) scale(0.72)`);
+      el('text', { x: lx + 74, y: ly + 3.5, class: 'fs-sub' }, svg, 'Documents');
+    }
+    layout.foot.forEach(([x, y, label, cls]) => el('text', { x, y, 'text-anchor': 'middle', class: cls }, svg, label));
+  }
+
+  render();
+  narrow.addEventListener('change', render);
+  reduced.addEventListener('change', render);
+
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) svg.unpauseAnimations();
+    else svg.pauseAnimations();
+  }).observe(svg);
+})();
+
+// RAG assistant demo (scripted, sample data only)
+(function () {
+  const log = document.getElementById('ragLog');
+  const promptsBox = document.getElementById('ragPrompts');
+  const stepsBox = document.getElementById('ragSteps');
+  if (!log || !promptsBox || !stepsBox) return;
+  const steps = [...stepsBox.children];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const h = (tag, cls, text, parent) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined) node.textContent = text;
+    if (parent) parent.appendChild(node);
+    return node;
+  };
+
+  function renderTable(host) {
+    const card = h('div', 'rag-card', undefined, host);
+    const scroll = h('div', 'rag-scroll', undefined, card);
+    const table = h('table', 'rag-table', undefined, scroll);
+    const head = h('tr', '', undefined, h('thead', '', undefined, table));
+    ['Client', 'Case type', 'Due'].forEach((t) => h('th', '', t, head));
+    const body = h('tbody', '', undefined, table);
+    [
+      ['Sample Traders', 'Scrutiny of Returns', 'Tomorrow', 'is-urgent'],
+      ['Demo Textiles', 'Determination of Tax', 'Tomorrow', 'is-urgent'],
+      ['Example Foods LLP', 'Audit', 'In 3 days', 'is-soon'],
+      ['Sample Traders', 'Non-filers of Returns', 'In 6 days', ''],
+    ].forEach(([client, type, due, tone]) => {
+      const row = h('tr', '', undefined, body);
+      h('td', '', client, row);
+      h('td', '', type, row);
+      h('span', `rag-pill ${tone}`, due, h('td', '', undefined, row));
+    });
+    h('div', 'rag-card-foot', '7 found · showing 4 · counted the same way as the GST dashboard', card);
+  }
+
+  const BREAKDOWN = [
+    { type: 'Scrutiny of Returns', notReplied: 2, replied: 1 },
+    { type: 'Determination of Tax', notReplied: 1, replied: 1 },
+    { type: 'Audit', notReplied: 1, replied: 0 },
+    { type: 'Non-filers of Returns', notReplied: 0, replied: 1 },
+  ];
+  const SERIES = [
+    { key: 'notReplied', label: 'Not replied', color: '#7c6aff' },
+    { key: 'replied', label: 'Replied', color: '#00a98a' },
+  ];
+
+  function renderChart(host) {
+    const card = h('div', 'rag-card', undefined, host);
+    const legend = h('div', 'rag-legend', undefined, card);
+    SERIES.forEach((s) => {
+      const item = h('span', '', undefined, legend);
+      h('i', 'rag-swatch', undefined, item).style.background = s.color;
+      item.append(s.label);
+    });
+    const tip = h('div', 'rag-tip', undefined, card);
+    tip.hidden = true;
+    const max = Math.max(...BREAKDOWN.map((d) => d.notReplied + d.replied));
+    const segs = [];
+    BREAKDOWN.forEach((d) => {
+      const row = h('div', 'rag-bar-row', undefined, card);
+      h('span', '', d.type, row);
+      const track = h('div', 'rag-bar-track', undefined, row);
+      SERIES.forEach((s) => {
+        if (!d[s.key]) return;
+        const seg = h('span', 'rag-seg', undefined, track);
+        h('span', 'rag-seg-fill', undefined, seg).style.background = s.color;
+        seg.tabIndex = 0;
+        seg.setAttribute('aria-label', `${d.type}, ${s.label}: ${d[s.key]}`);
+        const show = () => {
+          const a = seg.getBoundingClientRect();
+          const b = card.getBoundingClientRect();
+          tip.textContent = `${s.label}: ${d[s.key]}`;
+          tip.style.left = `${a.left - b.left + a.width / 2}px`;
+          tip.style.top = `${a.top - b.top + 2}px`;
+          tip.hidden = false;
+        };
+        const hide = () => { tip.hidden = true; };
+        seg.addEventListener('pointerenter', show);
+        seg.addEventListener('pointerleave', hide);
+        seg.addEventListener('focus', show);
+        seg.addEventListener('blur', hide);
+        segs.push([seg, (d[s.key] / max) * 100]);
+      });
+      h('span', 'rag-bar-total', String(d.notReplied + d.replied), row);
+    });
+    const grow = () => segs.forEach(([seg, w]) => { seg.style.width = `calc(${w}% - 1px)`; });
+    if (reduced) grow(); else requestAnimationFrame(() => requestAnimationFrame(grow));
+
+    const details = h('details', '', undefined, card);
+    h('summary', '', 'View as table', details);
+    const scroll = h('div', 'rag-scroll', undefined, details);
+    const table = h('table', 'rag-table', undefined, scroll);
+    const head = h('tr', '', undefined, h('thead', '', undefined, table));
+    ['Case type', 'Not replied', 'Replied'].forEach((t, i) => h('th', i ? 'num' : '', t, head));
+    const body = h('tbody', '', undefined, table);
+    BREAKDOWN.forEach((d) => {
+      const row = h('tr', '', undefined, body);
+      h('td', '', d.type, row);
+      h('td', 'num', String(d.notReplied), row);
+      h('td', 'num', String(d.replied), row);
+    });
+  }
+
+  function renderStats(host) {
+    const card = h('div', 'rag-card', undefined, host);
+    const grid = h('div', 'rag-stats', undefined, card);
+    const tile = (label, value, cls) => {
+      const t = h('div', `rag-stat ${cls || ''}`, undefined, grid);
+      h('div', 'rag-stat-label', label, t);
+      h('div', 'rag-stat-value', value, t);
+    };
+    tile('Total outstanding demand', '₹4,82,500', 'rag-stat-hero');
+    tile('IGST', '₹2,10,000');
+    tile('CGST', '₹1,30,000');
+    tile('SGST', '₹1,30,000');
+    tile('Cess', '₹12,500');
+    h('div', 'rag-card-foot', '2 demands across 1 GSTIN', card);
+  }
+
+  const SCENARIOS = [
+    {
+      chip: 'Notices due this week',
+      question: 'Which GST notices are due this week?',
+      path: [0, 1, 2, 3, 4],
+      tool: 'Checked GST additional notices · 7 found',
+      filters: ['Due: next 7 days', 'De-duplicated'],
+      answer: '7 notices are due this week. Two fall due tomorrow, for Sample Traders and Demo Textiles, so start with those.',
+      render: renderTable,
+    },
+    {
+      chip: 'Follow-up: break those down',
+      question: 'Break those down by case type.',
+      path: [0, 1, 2, 3, 4],
+      memory: true,
+      tool: 'Checked notice breakdown · 7 counted',
+      filters: ['Due: next 7 days', 'From previous question'],
+      answer: 'Scrutiny of Returns is the largest group, and 4 of the 7 notices are still not replied.',
+      render: renderChart,
+    },
+    {
+      chip: 'Demand for a client',
+      question: 'What is the total GST demand for Sample Traders?',
+      path: [0, 1, 2, 3, 4],
+      tool: 'Checked GST demands · 2 found',
+      filters: ['Client: Sample Traders'],
+      answer: 'Sample Traders has ₹4,82,500 (₹4.83 lakh) outstanding across 2 demands.',
+      render: renderStats,
+    },
+    {
+      chip: 'Ask for a password',
+      question: 'Show me the GST portal password for Sample Traders.',
+      path: [0, 3, 4],
+      refusal: "I can't share passwords or portal usernames. I can help with this client's notices, demands or ledger balances instead.",
+    },
+  ];
+
+  let visible = false;
+  let run = 0;
+  let autoplay = !reduced;
+  let started = false;
+  const chips = SCENARIOS.map((s, i) => {
+    const b = h('button', 'rag-prompt', s.chip, promptsBox);
+    b.type = 'button';
+    b.addEventListener('click', () => { autoplay = false; play(i, true); });
+    return b;
+  });
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  async function pause(ms, id) {
+    if (reduced) return run === id;
+    await sleep(ms);
+    while (!visible && run === id) await sleep(250);
+    return run === id;
+  }
+  const scrollDown = () => { log.scrollTop = log.scrollHeight; };
+
+  function setStep(path, position) {
+    steps.forEach((s, i) => {
+      const at = path.indexOf(i);
+      s.classList.toggle('is-skipped', at === -1 && position >= 0);
+      s.classList.toggle('is-done', at !== -1 && at < position);
+      s.classList.toggle('is-active', at !== -1 && at === position);
+    });
+  }
+
+  async function stream(node, text, id) {
+    if (reduced) { node.textContent = text; return true; }
+    const words = text.split(' ');
+    for (let i = 0; i < words.length; i += 1) {
+      node.textContent = words.slice(0, i + 1).join(' ');
+      scrollDown();
+      await sleep(38);
+      if (run !== id) return false;
+    }
+    return true;
+  }
+
+  function renderInstant(s) {
+    h('div', 'rag-msg-user', s.question, log);
+    if (s.refusal) {
+      const box = h('div', 'rag-refusal', undefined, log);
+      h('i', 'fas fa-shield-halved', undefined, box);
+      h('span', '', s.refusal, box);
+      return;
+    }
+    const line = h('div', 'rag-toolline', undefined, log);
+    h('i', 'fas fa-circle-check', undefined, line);
+    h('span', '', s.tool, line);
+    s.filters.forEach((f) => h('span', 'rag-chip', f, line));
+    h('div', 'rag-answer', s.answer, log);
+    s.render(log);
+  }
+
+  async function play(index, manual) {
+    const id = ++run;
+    const s = SCENARIOS[index];
+    chips.forEach((c, i) => c.classList.toggle('is-current', i === index));
+    if (index === 0 || index >= 2 || manual) log.replaceChildren();
+    if (s.memory && !log.children.length) renderInstant(SCENARIOS[0]);
+
+    h('div', 'rag-msg-user', s.question, log);
+    scrollDown();
+    let pos = 0;
+    setStep(s.path, pos);
+    const advance = async (ms) => {
+      if (!(await pause(ms, id))) return false;
+      pos += 1;
+      setStep(s.path, pos);
+      return true;
+    };
+
+    if (!(await advance(900))) return;
+    if (s.refusal) {
+      if (!(await advance(1000))) return;
+      const box = h('div', 'rag-refusal', undefined, log);
+      h('i', 'fas fa-shield-halved', undefined, box);
+      const text = h('span', '', '', box);
+      if (!(await stream(text, s.refusal, id))) return;
+    } else {
+      const line = h('div', 'rag-toolline', undefined, log);
+      h('i', 'fas fa-magnifying-glass', undefined, line);
+      const label = h('span', '', 'Checking the database…', line);
+      scrollDown();
+      if (!(await advance(1100))) return;
+      if (!(await advance(1100))) return;
+      line.querySelector('i').className = 'fas fa-circle-check';
+      label.textContent = s.tool;
+      s.filters.forEach((f) => h('span', 'rag-chip', f, line));
+      scrollDown();
+      if (!(await advance(900))) return;
+      const answer = h('div', 'rag-answer', '', log);
+      if (!(await stream(answer, s.answer, id))) return;
+      s.render(log);
+      scrollDown();
+    }
+    setStep(s.path, s.path.length);
+    if (autoplay && (await pause(5200, id)) && autoplay) play((index + 1) % SCENARIOS.length, false);
+  }
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible && !started) {
+      started = true;
+      play(0, false);
+    }
+  }, { threshold: 0.2 }).observe(log);
+})();
+</script>
+
+</body>
+</html>
