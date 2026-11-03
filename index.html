@@ -17,10 +17,10 @@ try {
 <meta name="description" content="Vinay Mathe, Full-Stack Software Engineer building web applications and RAG-based AI assistants.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vinaym001.github.io/">
-<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=3">
+<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vinay Mathe, Software Engineer, with an animation of government portal data flowing through a compliance engine to storage, databases and dashboards">
+<meta property="og:image:alt" content="Vinay Mathe, Full-Stack Software Engineer, with small animations of two projects: a statutory compliance integration and a RAG-based AI assistant">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Vinay Mathe — Software Engineer">
 <meta property="og:description" content="Full-stack software engineer building web applications and RAG-based AI assistants.">
@@ -1373,30 +1373,6 @@ body::before {
 
 /* Projects layout */
 .hero-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.stage-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 8px 24px;
-  margin-bottom: 12px;
-}
-.stage-eyebrow {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 2px;
-}
-.stage-title {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-100);
-}
-.stage-link { font-size: 14px; font-weight: 500; color: var(--accent-soft); text-decoration: none; }
-.stage-link:hover { text-decoration: underline; }
 .portal-logo--icon {
   display: flex;
   align-items: center;
@@ -1409,16 +1385,17 @@ body::before {
 }
 .project { margin-top: 48px; scroll-margin-top: 90px; }
 .project + .project { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--border); }
-.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .project-tag {
-  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: var(--font-sans);
+  font-size: 11px;
   font-weight: 600;
-  padding: 4px 12px;
+  line-height: 1.4;
+  padding: 2px 9px;
   border-radius: 100px;
   border: 1px solid currentColor;
 }
-.project-tag--work { color: var(--text-300); }
-.project-tag--featured { color: var(--teal); }
 .project-tag--personal { color: var(--accent-soft); }
 .project-title {
   font-family: var(--font-heading);
@@ -1438,8 +1415,52 @@ body::before {
 .project .rag-layout { margin-top: 28px; }
 @media (max-width: 600px) {
   .project-title { font-size: 24px; }
-  .stage-title { font-size: 19px; }
   .hero-metrics { gap: 16px; }
+}
+
+/* Small project animations at the top of the page */
+.showcase { margin-top: 6px; }
+.showcase-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-100);
+  margin-bottom: 14px;
+}
+.showcase-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  text-decoration: none;
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.showcase-card:hover, .showcase-card:focus-visible { border-color: var(--border-hover); transform: translateY(-3px); }
+.showcase-card:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.showcase-card .flow-stage { border: 0; border-radius: 0; box-shadow: none; padding: 8px 10px; }
+.mini-svg { display: block; width: 100%; height: auto; }
+.showcase-body { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px 16px; }
+.showcase-name { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--text-100); }
+.showcase-desc { font-size: 13.5px; line-height: 1.55; color: var(--text-300); }
+.showcase-link { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--accent-soft); }
+.hero-head .btn { flex: 0 0 auto; }
+.project-metrics { margin: 24px 0 0; max-width: 760px; }
+.project-stage {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1392px, calc(100vw - 48px));
+  margin-top: 28px;
+}
+@media (max-width: 860px) {
+  .showcase-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .project-stage { width: calc(100vw - 24px); }
 }
 
 </style>
@@ -1485,48 +1506,27 @@ body::before {
         <h1 class="hero-name">Vinay <span class="highlight">Mathe.</span></h1>
         <p class="hero-role"><strong>Full-Stack Software Engineer.</strong> Building web applications and RAG-based AI assistants.</p>
       </div>
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Contact Me</a>
     </div>
-    <div class="stage-heading">
-      <div>
-        <div class="stage-eyebrow">Featured Project</div>
-        <h2 class="stage-title">Government Portal Integration</h2>
-      </div>
-      <a href="#project-portals" class="stage-link">View project details <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-    </div>
-    <figure class="flow-stage">
-      <svg id="flowStage" role="img" aria-labelledby="flowTitle flowDesc">
-        <title id="flowTitle">How the compliance engine moves data</title>
-        <desc id="flowDesc">Data and documents flow from more than 30 services across Income Tax, GST, TAN, TRACES, GSTAT, ICAI and other portals into the compliance engine, through on-demand and scheduled syncs. Documents are stored across multiple clouds, AWS S3, Google Drive and Microsoft OneDrive, with their folder structure in a document database. Data is stored in structured tables in a relational database that powers dashboards. The engine also emails clients about deadlines and important notices, with Excel attachments.</desc>
-      </svg>
-    </figure>
-  </div>
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <p class="hero-desc reveal">
-          I work across the stack, from interfaces and dashboards to APIs, data pipelines and cloud integrations.
-        </p>
-        <div class="hero-cta reveal reveal-delay-1">
-          <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Contact Me</a>
-          <a href="#projects" class="btn btn-ghost"><i class="fas fa-code"></i> See My Work</a>
-        </div>
-      </div>
-      <div class="hero-side">
-        <div class="hero-metrics reveal reveal-delay-3">
-          <div class="metric">
-            <div class="metric-value"><span class="count-up" data-target="3">0</span><span class="unit">+</span></div>
-            <div class="metric-label">Years Exp</div>
+    <div class="showcase">
+      <h2 class="showcase-title">My Projects</h2>
+      <div class="showcase-grid">
+        <a class="showcase-card" href="#project-atom-pro">
+          <div class="flow-stage"><svg class="mini-svg" id="miniFlow" role="img" aria-label="Portal data and documents flowing through the compliance engine to cloud storage, databases, dashboards and email"></svg></div>
+          <div class="showcase-body">
+            <div class="showcase-name">Atom Pro: Statutory Compliance Integration</div>
+            <div class="showcase-desc">Data and document sync from statutory compliance portals to storage, dashboards and alerts.</div>
+            <span class="showcase-link">View project <i class="fas fa-arrow-down" aria-hidden="true"></i></span>
           </div>
-          <div class="metric">
-            <div class="metric-value"><span class="count-up" data-target="1100">0</span><span class="unit">+</span></div>
-            <div class="metric-label">Firms Across India</div>
-            <div class="metric-live">Still counting</div>
+        </a>
+        <a class="showcase-card" href="#rag">
+          <div class="flow-stage"><svg class="mini-svg" id="miniRag" role="img" aria-label="A question passing through access scope, retrieval tools and a field allow-list before the answer is returned"></svg></div>
+          <div class="showcase-body">
+            <div class="showcase-name">RAG-Based AI Assistant <span class="project-tag project-tag--personal">Personal</span></div>
+            <div class="showcase-desc">Natural-language queries over structured data, grounded in retrieved records.</div>
+            <span class="showcase-link">View project <i class="fas fa-arrow-down" aria-hidden="true"></i></span>
           </div>
-          <div class="metric">
-            <div class="metric-value"><span class="count-up" data-target="6">0</span><span class="unit">+</span></div>
-            <div class="metric-label">Govt Portals</div>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -1542,7 +1542,7 @@ body::before {
     <div class="about-layout">
       <div class="about-text reveal">
         <p>
-          I'm Vinay Mathe, a Software Engineer based in Hyderabad, India, with 3+ years of experience
+          I'm Vinay Mathe, a Software Engineer based in Hyderabad, India, with 3.6+ years of experience
           building production web applications across frontend and backend.
         </p>
         <p>
@@ -1569,7 +1569,7 @@ body::before {
         <div class="about-card reveal reveal-delay-2">
           <div class="about-card-icon"><i class="fas fa-plug"></i></div>
           <div class="about-card-title">Integrations</div>
-          <div class="about-card-desc">Government portals, AWS S3, Google Drive and Microsoft OneDrive</div>
+          <div class="about-card-desc">Statutory compliance portals, AWS S3, Google Drive and Microsoft OneDrive</div>
         </div>
         <div class="about-card reveal reveal-delay-3">
           <div class="about-card-icon"><i class="fas fa-robot"></i></div>
@@ -1586,23 +1586,128 @@ body::before {
 <!-- ═══════════ PROJECTS ═══════════ -->
 <section class="section" id="projects">
   <div class="container">
-    <div class="section-eyebrow reveal">Selected Work</div>
     <h2 class="section-title reveal">Projects</h2>
-    <p class="section-desc reveal">Product work from my role as a Software Engineer, and a personal project in AI integration with RAG.</p>
+    <p class="section-desc reveal">Products I work on at Vider Business Solutions, and a personal project in AI integration with RAG.</p>
 
-    <article class="project" id="project-portals">
-    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span><span class="project-tag project-tag--featured">Featured</span></div>
-    <h3 class="project-title reveal">Government Portal Integration</h3>
-    <p class="project-desc reveal">Data and document sync from the Indian tax and professional portals that accountants and company secretaries use every day. Each organization can sync on demand or on its own schedule, and the results flow into cloud storage, databases, dashboards and client email alerts. The animation at the top of this page shows the flow.</p>
+    <article class="project" id="project-atom">
+    <h3 class="project-title reveal">Atom: Practice Management Platform</h3>
+    <p class="project-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
+    <div class="rag-tech reveal">
+      <span class="next-tech">React.js</span>
+      <span class="next-tech">TypeScript</span>
+      <span class="next-tech">Material UI</span>
+      <span class="next-tech">NestJS</span>
+      <span class="next-tech">TypeORM</span>
+      <span class="next-tech">MySQL</span>
+    </div>
+    <ul class="platform-areas reveal" aria-label="Areas of the platform">
+      <li>Tasks &amp; Services</li>
+      <li>Recurring Compliance</li>
+      <li>Clients &amp; Client Groups</li>
+      <li>Billing &amp; Invoicing</li>
+      <li>Timesheets</li>
+      <li>Attendance &amp; Shifts</li>
+      <li>Leads</li>
+      <li>DSC Register</li>
+      <li>Document In/Out</li>
+      <li>Expenditure</li>
+      <li>Reports</li>
+      <li>Email &amp; WhatsApp</li>
+      <li>Cloud Storage</li>
+      <li>Statutory Compliance Sync (Atom Pro)</li>
+    </ul>
+    <div class="modules-grid project-modules">
+      <div class="mod-card reveal">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-window-maximize"></i></div>
+          <div class="mod-name">Frontend Applications</div>
+        </div>
+        <div class="mod-desc">Reusable, responsive interfaces for dashboards, dynamic forms and data grids</div>
+        <ul class="mod-list">
+          <li>React.js, TypeScript and Material UI components</li>
+          <li>Dynamic forms and data grids for compliance data</li>
+          <li>Frontend performance and UX improvements</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-1">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="mod-name">Compliance Dashboards</div>
+        </div>
+        <div class="mod-desc">Compliance dashboards with org-wise and client-wise aggregation views</div>
+        <ul class="mod-list">
+          <li>Financial year filtering and drill-down navigation</li>
+          <li>Summary widgets to individual records</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-file-import"></i></div>
+          <div class="mod-name">Bulk Import Engine</div>
+        </div>
+        <div class="mod-desc">Excel-based bulk import for tasks, clients, and credentials with validation</div>
+        <ul class="mod-list">
+          <li>10,000+ rows per batch with schema validation</li>
+          <li>Recurring and non-recurring job types</li>
+          <li>Duplicate detection and transactional rollback</li>
+          <li>Row-level error reporting</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-1">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-cogs"></i></div>
+          <div class="mod-name">Super Admin &amp; Config</div>
+        </div>
+        <div class="mod-desc">Cross-instance configuration with organization-scoped service overrides</div>
+        <ul class="mod-list">
+          <li>Frozen snapshots with restore capability</li>
+          <li>Production-call safeguards for data sync</li>
+          <li>Service cloning and recurring scheduling</li>
+          <li>Multi-level checklists and stage tracking</li>
+        </ul>
+      </div>
+    </div>
+    </article>
+
+    <article class="project" id="project-atom-pro">
+    <h3 class="project-title reveal">Atom Pro: Statutory Compliance Integration</h3>
+    <p class="project-desc reveal">Atom Pro syncs data and documents from the statutory compliance portals that accountants and company secretaries use every day. Organizations can sync on demand or on their own schedule. Documents are stored across AWS S3, Google Drive and Microsoft OneDrive with their folder structure in MongoDB, and the data powers dashboards and client email alerts.</p>
+    <div class="hero-metrics project-metrics reveal">
+      <div class="metric">
+        <div class="metric-value"><span class="count-up" data-target="1100">0</span><span class="unit">+</span></div>
+        <div class="metric-label">Firms Across India</div>
+        <div class="metric-live">Still counting</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value"><span class="count-up" data-target="6">0</span><span class="unit">+</span></div>
+        <div class="metric-label">Statutory Compliance Portals</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value"><span class="count-up" data-target="30">0</span><span class="unit">+</span></div>
+        <div class="metric-label">Portal Services</div>
+      </div>
+    </div>
     <div class="rag-tech reveal">
       <span class="next-tech">NestJS</span>
       <span class="next-tech">TypeORM</span>
       <span class="next-tech">MySQL</span>
+      <span class="next-tech">MongoDB</span>
       <span class="next-tech">Cheerio</span>
       <span class="next-tech">Axios</span>
       <span class="next-tech">Node-Cron</span>
       <span class="next-tech">Docker</span>
+      <span class="next-tech">AWS S3</span>
       <span class="next-tech">AWS SES</span>
+      <span class="next-tech">Google Drive API</span>
+      <span class="next-tech">Microsoft Graph API</span>
+    </div>
+    <div class="project-stage">
+      <figure class="flow-stage">
+      <svg id="flowStage" role="img" aria-labelledby="flowTitle flowDesc">
+        <title id="flowTitle">How the compliance engine moves data</title>
+        <desc id="flowDesc">Data and documents flow from more than 30 services across Income Tax, GST, TAN, TRACES, GSTAT, ICAI and other portals into the compliance engine, through on-demand and scheduled syncs. Documents are stored across multiple clouds, AWS S3, Google Drive and Microsoft OneDrive, with their folder structure in a document database. Data is stored in structured tables in a relational database that powers dashboards. The engine also emails clients about deadlines and important notices, with Excel attachments.</desc>
+      </svg>
+    </figure>
     </div>
     <div class="integrations-body reveal" id="portals">
       <div class="portal-grid">
@@ -1660,6 +1765,7 @@ body::before {
         <div class="sync-mode"><i class="fas fa-bolt" aria-hidden="true"></i><div><h4>On-demand sync</h4><p>Sync one client or many in bulk at any time, and choose exactly which services to fetch.</p></div></div>
         <div class="sync-mode"><i class="fas fa-clock" aria-hidden="true"></i><div><h4>Scheduled sync</h4><p>Each organization sets its own schedule, and client data refreshes automatically.</p></div></div>
       </div>
+    </div>
     <div class="modules-grid project-modules">
       <div class="mod-card reveal">
         <div class="mod-top">
@@ -1673,6 +1779,8 @@ body::before {
           <li>Download state machine for GST document sync</li>
           <li>AES encryption for stored credentials</li>
           <li>Dockerized compliance browser sync</li>
+          <li>Telegram-based batch monitoring</li>
+          <li>PM2-managed production deployment</li>
         </ul>
       </div>
       <div class="mod-card reveal reveal-delay-1">
@@ -1691,120 +1799,20 @@ body::before {
     </div>
     </article>
 
-    <article class="project" id="project-platform">
-    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span></div>
-    <h3 class="project-title reveal">Practice Management Platform</h3>
-    <p class="project-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
-    <div class="rag-tech reveal">
-      <span class="next-tech">React.js</span>
-      <span class="next-tech">TypeScript</span>
-      <span class="next-tech">Material UI</span>
-      <span class="next-tech">NestJS</span>
-      <span class="next-tech">TypeORM</span>
-      <span class="next-tech">MySQL</span>
-    </div>
-    <ul class="platform-areas reveal" aria-label="Areas of the platform">
-      <li>Tasks &amp; Services</li>
-      <li>Recurring Compliance</li>
-      <li>Clients &amp; Client Groups</li>
-      <li>Billing &amp; Invoicing</li>
-      <li>Timesheets</li>
-      <li>Attendance &amp; Shifts</li>
-      <li>Leads</li>
-      <li>DSC Register</li>
-      <li>Document In/Out</li>
-      <li>Expenditure</li>
-      <li>Reports</li>
-      <li>Email &amp; WhatsApp</li>
-      <li>Cloud Storage</li>
-      <li>Government Portal Sync</li>
-    </ul>
-    <div class="modules-grid project-modules">
-      <div class="mod-card reveal">
-        <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-window-maximize"></i></div>
-          <div class="mod-name">Frontend Applications</div>
-        </div>
-        <div class="mod-desc">Reusable, responsive interfaces for dashboards, dynamic forms and data grids</div>
-        <ul class="mod-list">
-          <li>React.js, TypeScript and Material UI components</li>
-          <li>Dynamic forms and data grids for compliance data</li>
-          <li>Frontend performance and UX improvements</li>
-        </ul>
-      </div>
-      <div class="mod-card reveal reveal-delay-1">
-        <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-chart-bar"></i></div>
-          <div class="mod-name">Compliance Dashboards</div>
-        </div>
-        <div class="mod-desc">Compliance dashboards with org-wise and client-wise aggregation views</div>
-        <ul class="mod-list">
-          <li>Financial year filtering and drill-down navigation</li>
-          <li>Summary widgets to individual records</li>
-        </ul>
-      </div>
-      <div class="mod-card reveal">
-        <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-file-import"></i></div>
-          <div class="mod-name">Bulk Import Engine</div>
-        </div>
-        <div class="mod-desc">Excel-based bulk import for tasks, clients, and credentials with validation</div>
-        <ul class="mod-list">
-          <li>10,000+ rows per batch with schema validation</li>
-          <li>Recurring and non-recurring job types</li>
-          <li>Duplicate detection and transactional rollback</li>
-          <li>Row-level error reporting</li>
-        </ul>
-      </div>
-      <div class="mod-card reveal reveal-delay-1">
-        <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-cogs"></i></div>
-          <div class="mod-name">Super Admin &amp; Config</div>
-        </div>
-        <div class="mod-desc">Cross-instance configuration with organization-scoped service overrides</div>
-        <ul class="mod-list">
-          <li>Frozen snapshots with restore capability</li>
-          <li>Production-call safeguards for data sync</li>
-          <li>Service cloning and recurring scheduling</li>
-          <li>Multi-level checklists and stage tracking</li>
-        </ul>
-      </div>
-    </div>
-    </article>
-
-    <article class="project" id="project-storage">
-    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span></div>
-    <h3 class="project-title reveal">Multi-Cloud Document Storage</h3>
-    <p class="project-desc reveal">A unified document pipeline across AWS S3, Microsoft OneDrive and Google Drive, with the folder structure of documents kept in MongoDB.</p>
-    <div class="rag-tech reveal">
-      <span class="next-tech">AWS S3</span>
-      <span class="next-tech">Google Drive API</span>
-      <span class="next-tech">Microsoft Graph API</span>
-      <span class="next-tech">MongoDB</span>
-      <span class="next-tech">PM2</span>
-    </div>
-    <ul class="mod-list project-list reveal">
-      <li>Centralized session management across modules</li>
-      <li>Telegram-based batch monitoring</li>
-      <li>PM2-managed production deployment</li>
-    </ul>
-    </article>
-
     <article class="project" id="rag">
-    <div class="project-tags reveal"><span class="project-tag project-tag--personal">Personal</span></div>
-    <h3 class="project-title reveal">RAG Compliance Assistant</h3>
-    <p class="project-desc reveal">A conversational assistant that answers natural-language questions over structured compliance records. For each question, the model calls predefined tools that query the database, then answers from the records they return. Results are limited to the clients each user can access, and credentials and other sensitive fields are removed before data reaches the model. Built on the Anthropic Claude API.</p>
+    <h3 class="project-title reveal">RAG-Based AI Assistant <span class="project-tag project-tag--personal">Personal</span></h3>
+    <p class="project-desc reveal">A retrieval-augmented generation (RAG) assistant that adds a natural-language query layer to structured compliance data. Questions are resolved through model-driven tool calls against existing service logic, so each response is grounded in retrieved records and reconciles with the application's dashboards. Access scopes are enforced on the server, and a field allow-list keeps credentials and other sensitive attributes out of the model context. Built on the Anthropic Claude API, with prompt caching and streamed responses.</p>
 
     <div class="rag-layout">
       <ul class="rag-steps reveal" id="ragSteps">
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span><div><h4>Conversation history</h4><p>Stored by the application and sent with each request, so follow-up questions keep their context.</p></div></li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Access control</h4><p>Every query is limited to the clients the signed-in user can access.</p></div></li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Tool-based retrieval</h4><p>The model calls predefined tools backed by existing service logic, so results match the dashboards.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span><div><h4>Conversation State</h4><p>History is persisted by the application and replayed on each request, preserving context across follow-up questions.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Access Scoping</h4><p>Every query is restricted server-side to the organization and clients the authenticated user can access.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Tool-Based Retrieval</h4><p>Typed tools wrap existing service methods, reusing their validation and de-duplication rules.</p></div></li>
         <li class="rag-step">
           <span class="rag-step-num"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
           <div>
-            <h4>Field allow-list</h4>
-            <p>Only approved fields are returned to the model. Credentials are never included.</p>
+            <h4>Field Allow-List</h4>
+            <p>Tool output is mapped to approved fields before it enters the model context. Credentials are never included.</p>
             <div class="rag-fields" aria-label="Example fields">
               <span class="rag-field"><i class="fas fa-check"></i>client</span>
               <span class="rag-field"><i class="fas fa-check"></i>gstin</span>
@@ -1814,7 +1822,7 @@ body::before {
             </div>
           </div>
         </li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-bolt" aria-hidden="true"></i></span><div><h4>Streaming responses</h4><p>Answers stream as they are generated, as text, tables and stats.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-bolt" aria-hidden="true"></i></span><div><h4>Streaming Delivery</h4><p>Responses are delivered over Server-Sent Events as text, tables and summary statistics.</p></div></li>
       </ul>
 
       <div class="rag-chat reveal reveal-delay-1">
@@ -1851,6 +1859,7 @@ body::before {
   <div class="container">
     <div class="section-eyebrow reveal">Career</div>
     <h2 class="section-title reveal">Professional Experience</h2>
+    <p class="section-desc reveal">3.6+ years of professional experience at Vider Business Solutions.</p>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-date">
@@ -1862,14 +1871,20 @@ body::before {
         </div>
         <div class="tl-content">
           <div class="tl-role">Software Engineer</div>
-          <div class="tl-company">SaaS product company — Hyderabad, India</div>
+          <div class="tl-company">Vider Business Solutions — Hyderabad, India</div>
           <ul class="tl-points">
-            <li>Worked across frontend and backend on government portal integrations</li>
-            <li>Built batch processing pipelines for portal data sync</li>
-            <li>Built multi-cloud document pipeline across AWS S3, OneDrive, and Google Drive</li>
-            <li>Developed compliance dashboards with drill-down analytics</li>
+            <li>Built Atom Pro modules across Income Tax, GST, TAN, TRACES and GSTAT, on both frontend and backend</li>
+            <li>Developed compliance dashboards, statistics and drill-down analytics</li>
+            <li>Built batch processing pipelines for portal data sync, including resync for failed modules</li>
+            <li>Implemented email notifications for deadlines, notices and demands using cron jobs and EJS templates</li>
+            <li>Built recurring and non-recurring task bulk import with Excel templates, validation and duplicate handling</li>
+            <li>Developed client and credential bulk import, bulk update and export</li>
+            <li>Built super admin service customization with organization-level overrides and cross-instance move to production</li>
+            <li>Added task milestone and custom reports, timesheet exports and expense updates</li>
+            <li>Integrated ICAI E-Diary and UDIN with task, log hour and timer workflows</li>
+            <li>Improved multi-cloud document storage across AWS S3, OneDrive and Google Drive, including folder creation and re-authorization</li>
             <li>Applied secure practices, including parameterized queries and encrypted credential storage</li>
-            <li>Integrated ICAI E-Diary and UDIN portals with internal task systems</li>
+            <li>Added channel partner coupons at sign-up and organization expiry alerts</li>
           </ul>
         </div>
       </div>
@@ -1883,7 +1898,7 @@ body::before {
         </div>
         <div class="tl-content">
           <div class="tl-role">Junior Software Engineer</div>
-          <div class="tl-company">SaaS product company — Hyderabad, India</div>
+          <div class="tl-company">Vider Business Solutions — Hyderabad, India</div>
           <ul class="tl-points">
             <li>Built reusable, responsive UI components using React.js, TypeScript, and Material UI</li>
             <li>Developed and integrated backend APIs using NestJS, TypeORM, and MySQL</li>
@@ -2153,6 +2168,8 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     scale: [640, 'M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288H584.4L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320H199.3L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z'],
     cap: [640, 'M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z'],
     database: [448, 'M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z'],
+    userLock: [640, 'M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H392.6c-5.4-9.4-8.6-20.3-8.6-32V352c0-2.1 .1-4.2 .3-6.3c-31-26-71-41.7-114.6-41.7H178.3zM528 240c17.7 0 32 14.3 32 32v48H496V272c0-17.7 14.3-32 32-32zm-80 32v48c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32V272c0-44.2-35.8-80-80-80s-80 35.8-80 80z'],
+    shield: [512, 'M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z'],
     folderTree: [576, 'M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v96V384c0 35.3 28.7 64 64 64H256V384H64V160H256V96H64V32zM288 192c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V192zm0 288c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V480z'],
   };
   const DRIVE_PATHS = [
@@ -2271,7 +2288,8 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     return {
       w: 1500, h: 650, hub, nodes, paths,
       heads: [
-        [24, 28, 'start', '6+ GOVERNMENT PORTALS · 30+ SERVICES'],
+        [24, 24, 'start', '6+ STATUTORY COMPLIANCE PORTALS'],
+        [24, 41, 'start', '30+ SERVICES'],
         [382, 28, 'start', 'DATA + DOCUMENTS'],
         [690, 28, 'middle', 'SYNC MODES'],
         [905, 28, 'start', 'MULTI-CLOUD DOCUMENT STORAGE'],
@@ -2326,7 +2344,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     return {
       w: 400, h: 1160, hub, nodes, paths,
       heads: [
-        [200, 18, 'middle', '6+ GOVERNMENT PORTALS · 30+ SERVICES'],
+        [200, 18, 'middle', '6+ STATUTORY COMPLIANCE PORTALS'],
         [376, 516, 'end', 'MULTI-CLOUD DOCUMENT STORAGE'],
         [376, 748, 'end', 'STRUCTURED DATA'],
         [376, 1044, 'end', 'NOTIFICATIONS'],
@@ -2335,7 +2353,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       cards: { table: { x: 36, y: 758, w: 328, h: 120 }, dash: { x: 36, y: 906, w: 328, h: 112 } },
       foot: [
         [200, 256, '+ more portals and services', 'fs-sub fs-halo'],
-        [200, 34, 'On-demand + scheduled sync', 'fs-live fs-halo'],
+        [200, 34, '30+ services · On-demand + scheduled sync', 'fs-live fs-halo'],
       ],
     };
   }
@@ -2389,6 +2407,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   };
 
   function particlesFor(path) {
+    if (path.mini) return path.mini;
     const docA = path.i % 2 === 0 ? 'pdf' : 'xls';
     const docB = path.i % 2 === 0 ? 'xls' : 'pdf';
     if (narrow.matches) {
@@ -2451,7 +2470,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       const t = el('text', { x: half + 12, y: n.sub ? -3 : 5, class: 'fs-name' }, g, n.name);
       if (n.count) el('tspan', { dx: 8, class: 'fs-count' }, t, `${n.count} services`);
       if (n.sub) el('text', { x: half + 12, y: 14, class: 'fs-sub' }, g, n.sub);
-    } else {
+    } else if (n.label === 'below') {
       el('text', { x: 0, y: half + 18, 'text-anchor': 'middle', class: 'fs-name fs-halo' }, g, n.name);
       if (n.sub) el('text', { x: 0, y: half + 33, 'text-anchor': 'middle', class: 'fs-sub fs-halo' }, g, n.sub);
     }
@@ -2562,7 +2581,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     });
   }
 
-  function drawHub(layer, hub, still) {
+  function drawHub(layer, hub, still, title = 'COMPLIANCE', sub = 'ENGINE') {
     const glow = el('circle', { cx: hub.x, cy: hub.y, r: hub.r + 46, fill: 'url(#fsGlow)' }, layer);
     if (!still) {
       el('animate', { attributeName: 'opacity', values: '0.65;1;0.65', dur: '3.6s', repeatCount: 'indefinite' }, glow);
@@ -2580,8 +2599,8 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     spin(hub.r - 9, '10 7', '#7c6aff', 0, 360, '24s');
     spin(hub.r - 17, '3 9', '#00e0b0', 360, 0, '18s');
     const t = el('g', { transform: `translate(${hub.x} ${hub.y}) scale(${hub.r / 88})` }, layer);
-    el('text', { x: 0, y: 1, 'text-anchor': 'middle', class: 'fs-hub-title' }, t, 'COMPLIANCE');
-    el('text', { x: 2, y: 23, 'text-anchor': 'middle', class: 'fs-hub-sub' }, t, 'ENGINE');
+    el('text', { x: 0, y: 1, 'text-anchor': 'middle', class: 'fs-hub-title' }, t, title);
+    el('text', { x: 2, y: 23, 'text-anchor': 'middle', class: 'fs-hub-sub' }, t, sub);
   }
 
   function render() {
@@ -2630,9 +2649,111 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     layout.foot.forEach(([x, y, label, cls]) => el('text', { x, y, 'text-anchor': 'middle', class: cls }, svg, label));
   }
 
-  render();
-  narrow.addEventListener('change', render);
-  reduced.addEventListener('change', render);
+  // Small versions for the top of the page
+  function drawMini(target, prefix, hub, title, sub, paths, nodes, still, extras) {
+    target.replaceChildren();
+    target.setAttribute('viewBox', '0 0 560 300');
+    const lines = el('g', {}, target);
+    paths.forEach((p, n) => el('path', { id: `${prefix}${n}`, d: p.d, fill: 'none', stroke: p.color, 'stroke-opacity': 0.36, 'stroke-width': 1.5 }, lines));
+    drawHub(el('g', {}, target), hub, still, title, sub);
+    if (extras) extras(el('g', {}, target));
+    const particles = el('g', {}, target);
+    paths.forEach((p, n) => addParticles(particles, p, `${prefix}${n}`, still));
+    const tiles = el('g', {}, target);
+    nodes.forEach((n) => drawNode(tiles, n));
+  }
+
+  function renderMiniFlow(still) {
+    const target = document.getElementById('miniFlow');
+    if (!target) return;
+    const hub = { x: 280, y: 150, r: 56 };
+    const rowY = (i) => 28 + i * 48.8;
+    const dyOf = (i) => (i - 2.5) * 15;
+    const edge = (dy) => Math.sqrt(hub.r * hub.r - dy * dy);
+    const drawDb = (g) => drawIcon(g, ICONS.database, '#00758f', 36);
+    const drawBars = (g) => {
+      [[-16, 2, 14, '#7c6aff'], [-5, -14, 30, '#00a98a'], [6, -6, 22, '#7c6aff']].forEach(([x, y, h, fill]) =>
+        el('rect', { x, y, width: 9, height: h, rx: 2, fill }, g));
+    };
+    const outputs = [
+      { ...CLOUDS[0], items: ['pdf', 'doc'] },
+      { ...CLOUDS[1], items: ['xls', 'pdf'] },
+      { ...CLOUDS[2], items: ['doc', 'xls'] },
+      { name: 'Relational Database', draw: drawDb, color: '#2fb6d6', items: ['rec', 'rec'] },
+      { name: 'Dashboards', draw: drawBars, color: '#a99cff', items: ['dot', 'dot2'] },
+      { ...MAIL, items: ['mailx'] },
+    ];
+    const paths = [];
+    const nodes = [];
+    PORTALS.forEach((p, i) => {
+      const y = rowY(i);
+      const dy = dyOf(i);
+      nodes.push({ ...p, x: 34, y, size: 36, label: 'none' });
+      paths.push({ d: `M52 ${y}C140 ${y} 150 ${hub.y + dy} ${hub.x - edge(dy)} ${hub.y + dy}`, color: p.color, i, mini: { dur: 6 + i * 0.4, items: ['rec', i % 2 ? 'xls' : 'pdf', 'dot'] } });
+    });
+    outputs.forEach((o, i) => {
+      const y = rowY(i);
+      const dy = dyOf(i);
+      nodes.push({ ...o, x: 526, y, size: 36, label: 'none' });
+      paths.push({ d: `M${hub.x + edge(dy)} ${hub.y + dy}C410 ${hub.y + dy} 420 ${y} 508 ${y}`, color: o.color, i, mini: { dur: 5 + i * 0.3, items: o.items } });
+    });
+    drawMini(target, 'fsMiniFlow', hub, 'COMPLIANCE', 'ENGINE', paths, nodes, still);
+  }
+
+  function renderMiniRag(still) {
+    const target = document.getElementById('miniRag');
+    if (!target) return;
+    const hub = { x: 264, y: 150, r: 56 };
+    const nodes = [
+      { name: 'Access Scope', sub: 'Per-user clients', icon: ICONS.userLock, tile: '#1f5fae', color: '#5b9fe8', x: 396, y: 62, size: 36, label: 'right' },
+      { name: 'Retrieval Tools', sub: 'Service-backed queries', icon: ICONS.database, tile: '#0f6f8f', color: '#2fb6d6', x: 396, y: 150, size: 36, label: 'right' },
+      { name: 'Field Allow-List', sub: 'Credentials blocked', icon: ICONS.shield, tile: '#1c8a55', color: '#00e0b0', x: 396, y: 238, size: 36, label: 'right' },
+    ];
+    const paths = [
+      { d: 'M186 72C210 72 215 100 225 110', color: '#a99cff', i: 0, mini: { dur: 3.2, items: ['dot', 'dot2'] } },
+      { d: 'M306 113C330 90 345 62 378 62', color: '#5b9fe8', i: 1, mini: { dur: 3.6, items: ['dot'] } },
+      { d: 'M378 144L320 144', color: '#2fb6d6', i: 2, mini: { dur: 3, items: ['rec', 'rec'] } },
+      { d: 'M320 156L378 156', color: '#2fb6d6', i: 3, mini: { dur: 3, items: ['dot2'] } },
+      { d: 'M378 238C345 238 330 210 306 187', color: '#00e0b0', i: 4, mini: { dur: 3.6, items: ['rec'] } },
+      { d: 'M225 190C215 200 210 214 186 220', color: '#00e0b0', i: 5, mini: { dur: 3.2, items: ['dot', 'dot2'] } },
+    ];
+    drawMini(target, 'fsMiniRag', hub, 'RAG', 'ASSISTANT', paths, nodes, still, (g) => {
+      el('text', { x: 14, y: 40, class: 'fs-head' }, g, 'QUESTION');
+      el('rect', { x: 14, y: 50, width: 172, height: 42, rx: 12, fill: '#7c6aff' }, g);
+      el('text', { x: 100, y: 75, 'text-anchor': 'middle', class: 'fs-name fs-name-sm' }, g, 'Notices due this week?');
+      el('text', { x: 14, y: 166, class: 'fs-head' }, g, 'ANSWER');
+      el('rect', { x: 14, y: 176, width: 172, height: 100, rx: 12, fill: '#11112f', stroke: '#00e0b0', 'stroke-opacity': 0.5, 'stroke-width': 1.5 }, g);
+      el('text', { x: 26, y: 198, class: 'fs-name fs-name-sm' }, g, '7 notices due');
+      [0, 1, 2].forEach((r) => {
+        const y = 212 + r * 19;
+        el('rect', { x: 26, y: y + 2, width: 70 - r * 12, height: 6, rx: 3, fill: '#fff', 'fill-opacity': 0.3 }, g);
+        el('rect', { x: 124, y, width: 48, height: 10, rx: 5, fill: r % 2 ? '#00a98a' : '#7c6aff' }, g);
+      });
+      if (!still) {
+        const sweep = el('rect', { x: 20, y: 208, width: 160, height: 17, rx: 4, fill: '#00e0b0', 'fill-opacity': 0.14 }, g);
+        el('animate', { attributeName: 'y', values: '208;227;246', dur: '3.6s', calcMode: 'discrete', repeatCount: 'indefinite' }, sweep);
+      }
+    });
+  }
+
+  function renderAll() {
+    render();
+    renderMiniFlow(reduced.matches);
+    renderMiniRag(reduced.matches);
+  }
+
+  renderAll();
+  narrow.addEventListener('change', renderAll);
+  reduced.addEventListener('change', renderAll);
+
+  ['miniFlow', 'miniRag'].forEach((id) => {
+    const mini = document.getElementById(id);
+    if (!mini) return;
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) mini.unpauseAnimations();
+      else mini.pauseAnimations();
+    }).observe(mini);
+  });
 
   new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) svg.unpauseAnimations();
