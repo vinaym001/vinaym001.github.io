@@ -14,16 +14,16 @@ try {
 } catch (e) {}
 </script>
 <title>Vinay Mathe — Software Engineer</title>
-<meta name="description" content="Vinay Mathe, Software Engineer working across frontend and backend on compliance software for CA and CS firms across India. Personal project: RAG AI integration.">
+<meta name="description" content="Vinay Mathe, Full-Stack Software Engineer building web applications and RAG-based AI assistants.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vinaym001.github.io/">
-<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=2">
+<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vinay Mathe, Software Engineer, with an animation of government portal data flowing through a compliance engine to storage, databases and dashboards">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Vinay Mathe — Software Engineer">
-<meta property="og:description" content="Frontend and backend engineer building compliance software for CA and CS firms across India. Personal project: RAG AI integration.">
+<meta property="og:description" content="Full-stack software engineer building web applications and RAG-based AI assistants.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6aff'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fff'%3EVM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1287,19 +1287,6 @@ body::before {
 .sync-mode h4 { font-size: 15px; color: var(--text-100); margin-bottom: 4px; }
 .sync-mode p { font-size: 13px; line-height: 1.55; color: var(--text-300); }
 
-.rag-explain {
-  max-width: 720px;
-  margin-top: 20px;
-  padding: 14px 18px;
-  border-left: 3px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: rgba(124,106,255,0.07);
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--text-200);
-}
-.rag-explain strong { color: var(--text-100); }
-
 @media (max-width: 1000px) {
 }
 @media (max-width: 600px) {
@@ -1384,6 +1371,77 @@ body::before {
 .theme-toggle:hover { border-color: var(--accent); background: rgba(124,106,255,0.08); }
 .theme-toggle:focus-visible, .nav-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 
+/* Projects layout */
+.hero-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stage-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 12px;
+}
+.stage-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.stage-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-100);
+}
+.stage-link { font-size: 14px; font-weight: 500; color: var(--accent-soft); text-decoration: none; }
+.stage-link:hover { text-decoration: underline; }
+.portal-logo--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: var(--tile);
+  color: #fff;
+  font-size: 26px;
+}
+.project { margin-top: 48px; scroll-margin-top: 90px; }
+.project + .project { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--border); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.project-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid currentColor;
+}
+.project-tag--work { color: var(--text-300); }
+.project-tag--featured { color: var(--teal); }
+.project-tag--personal { color: var(--accent-soft); }
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-100);
+  margin-bottom: 12px;
+}
+.project-desc { max-width: 760px; font-size: 16px; line-height: 1.75; color: var(--text-300); }
+.project .rag-tech { margin-top: 18px; }
+.project .platform-areas { margin-top: 20px; }
+.project-modules { margin-top: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .project-modules { grid-template-columns: minmax(0, 1fr); }
+}
+.project-list { margin-top: 20px; max-width: 760px; }
+.project .rag-layout { margin-top: 28px; }
+@media (max-width: 600px) {
+  .project-title { font-size: 24px; }
+  .stage-title { font-size: 19px; }
+  .hero-metrics { gap: 16px; }
+}
+
 </style>
 </head>
 <body>
@@ -1405,9 +1463,7 @@ body::before {
     <a href="#" class="nav-logo">&lt;<span>VM</span> /&gt;</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#integrations">Integrations</a></li>
-      <li><a href="#rag">AI Assistant</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1427,17 +1483,20 @@ body::before {
     <div class="hero-head">
       <div>
         <h1 class="hero-name">Vinay <span class="highlight">Mathe.</span></h1>
-        <p class="hero-role"><strong>Software Engineer</strong>, frontend and backend. RAG AI integration.</p>
+        <p class="hero-role"><strong>Full-Stack Software Engineer.</strong> Building web applications and RAG-based AI assistants.</p>
       </div>
-      <div class="hero-status">
-        <span class="status-dot"></span>
-        Open to opportunities
+    </div>
+    <div class="stage-heading">
+      <div>
+        <div class="stage-eyebrow">Featured Project</div>
+        <h2 class="stage-title">Government Portal Integration</h2>
       </div>
+      <a href="#project-portals" class="stage-link">View project details <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
     </div>
     <figure class="flow-stage">
       <svg id="flowStage" role="img" aria-labelledby="flowTitle flowDesc">
         <title id="flowTitle">How the compliance engine moves data</title>
-        <desc id="flowDesc">Data and documents flow from more than 30 services across Income Tax, GST, TAN, TRACES, GSTAT, ICAI and other portals into the compliance engine, through on-demand and scheduled syncs. Documents are stored across multiple clouds, AWS S3, Google Drive and Microsoft OneDrive, with their folder structure in MongoDB. Data is stored in structured MySQL tables that power dashboards. The engine also emails clients about deadlines and important notices, with Excel attachments.</desc>
+        <desc id="flowDesc">Data and documents flow from more than 30 services across Income Tax, GST, TAN, TRACES, GSTAT, ICAI and other portals into the compliance engine, through on-demand and scheduled syncs. Documents are stored across multiple clouds, AWS S3, Google Drive and Microsoft OneDrive, with their folder structure in a document database. Data is stored in structured tables in a relational database that powers dashboards. The engine also emails clients about deadlines and important notices, with Excel attachments.</desc>
       </svg>
     </figure>
   </div>
@@ -1445,12 +1504,11 @@ body::before {
     <div class="hero-grid">
       <div class="hero-content">
         <p class="hero-desc reveal">
-          I build compliance software for CA and CS firms across India, from government portal data pipelines to multi-cloud document storage
-          and dashboards.
+          I work across the stack, from interfaces and dashboards to APIs, data pipelines and cloud integrations.
         </p>
         <div class="hero-cta reveal reveal-delay-1">
           <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Contact Me</a>
-          <a href="#platform" class="btn btn-ghost"><i class="fas fa-code"></i> See My Work</a>
+          <a href="#projects" class="btn btn-ghost"><i class="fas fa-code"></i> See My Work</a>
         </div>
       </div>
       <div class="hero-side">
@@ -1462,11 +1520,6 @@ body::before {
           <div class="metric">
             <div class="metric-value"><span class="count-up" data-target="1100">0</span><span class="unit">+</span></div>
             <div class="metric-label">Firms Across India</div>
-            <div class="metric-live">Still counting</div>
-          </div>
-          <div class="metric">
-            <div class="metric-value"><span class="count-up" data-target="115" data-suffix="K">0</span><span class="unit">+</span></div>
-            <div class="metric-label">Credentials</div>
             <div class="metric-live">Still counting</div>
           </div>
           <div class="metric">
@@ -1484,28 +1537,22 @@ body::before {
 <!-- ═══════════ ABOUT ═══════════ -->
 <section class="section" id="about">
   <div class="container">
-    <div class="section-eyebrow reveal">About</div>
-    <h2 class="section-title reveal">Turning Compliance Chaos<br>Into Clean Systems</h2>
+    <div class="section-eyebrow reveal">Profile</div>
+    <h2 class="section-title reveal">About Me</h2>
     <div class="about-layout">
       <div class="about-text reveal">
         <p>
-          I'm a Software Engineer with 3+ years of experience building production-grade web applications.
-          I specialize in statutory compliance integration — designing systems that connect with Indian
-          government portals to automate data sync for chartered accountant and company secretary firms.
+          I'm Vinay Mathe, a Software Engineer based in Hyderabad, India, with 3+ years of experience
+          building production web applications across frontend and backend.
         </p>
         <p>
-          I build systems that sync data and documents from 6+ government portals
-          (Income Tax, GST, TAN, TRACES, GSTAT, ICAI), processing notices, orders, e-proceedings,
-          demands, returns, and filing statuses.
+          On the frontend, I build responsive interfaces, dashboards, dynamic forms and data grids with
+          React, TypeScript and Material UI. On the backend, I develop REST APIs, job queues and batch
+          processing with NestJS, TypeORM and MySQL, along with third-party and cloud storage integrations.
         </p>
         <p>
-          My day-to-day spans the full stack: NestJS and TypeORM on the backend, React.js and Material UI
-          on the frontend, with MySQL, MongoDB, and multi-cloud storage integrations across AWS S3,
-          Microsoft OneDrive, and Google Drive.
-        </p>
-        <p>
-          Outside work, I'm expanding into AI integration through personal projects, including
-          a RAG assistant that answers questions from compliance data.
+          I also work on AI integration with RAG, connecting language models to application data through
+          tool-based retrieval, with access controls and protection for sensitive fields.
         </p>
       </div>
       <div class="about-cards">
@@ -1526,8 +1573,8 @@ body::before {
         </div>
         <div class="about-card reveal reveal-delay-3">
           <div class="about-card-icon"><i class="fas fa-robot"></i></div>
-          <div class="about-card-title">AI Integration</div>
-          <div class="about-card-desc">Personal projects with RAG and the Claude API</div>
+          <div class="about-card-title">AI Integration with RAG</div>
+          <div class="about-card-desc">Tool-based retrieval and access controls with the Claude API</div>
         </div>
       </div>
     </div>
@@ -1536,12 +1583,126 @@ body::before {
 
 <div class="section-divider"></div>
 
-<!-- ═══════════ PLATFORM ═══════════ -->
-<section class="section" id="platform">
+<!-- ═══════════ PROJECTS ═══════════ -->
+<section class="section" id="projects">
   <div class="container">
-    <div class="section-eyebrow reveal">Product Work</div>
-    <h2 class="section-title reveal">Compliance Platform</h2>
-    <p class="section-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
+    <div class="section-eyebrow reveal">Selected Work</div>
+    <h2 class="section-title reveal">Projects</h2>
+    <p class="section-desc reveal">Product work from my role as a Software Engineer, and a personal project in AI integration with RAG.</p>
+
+    <article class="project" id="project-portals">
+    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span><span class="project-tag project-tag--featured">Featured</span></div>
+    <h3 class="project-title reveal">Government Portal Integration</h3>
+    <p class="project-desc reveal">Data and document sync from the Indian tax and professional portals that accountants and company secretaries use every day. Each organization can sync on demand or on its own schedule, and the results flow into cloud storage, databases, dashboards and client email alerts. The animation at the top of this page shows the flow.</p>
+    <div class="rag-tech reveal">
+      <span class="next-tech">NestJS</span>
+      <span class="next-tech">TypeORM</span>
+      <span class="next-tech">MySQL</span>
+      <span class="next-tech">Cheerio</span>
+      <span class="next-tech">Axios</span>
+      <span class="next-tech">Node-Cron</span>
+      <span class="next-tech">Docker</span>
+      <span class="next-tech">AWS SES</span>
+    </div>
+    <div class="integrations-body reveal" id="portals">
+      <div class="portal-grid">
+        <article class="portal-card" id="portal-income-tax">
+          <div class="portal-logo portal-logo--icon" style="--tile:#1f5fae"><i class="fas fa-indian-rupee-sign" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>Income Tax (PAN)</h4><span class="portal-count">9 services</span></div>
+            <ul class="portal-services"><li>e-Proceedings</li><li>Returns</li><li>Returns with Attachments</li><li>Forms</li><li>My CAs</li><li>Outstanding Demand</li><li>e-Challan</li><li>e-Campaign</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-gst">
+          <div class="portal-logo portal-logo--icon" style="--tile:#c7641a"><i class="fas fa-receipt" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>GST</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>Notices &amp; Orders</li><li>Additional Notices</li><li>Demand</li><li>Ledger Balance</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-tan">
+          <div class="portal-logo portal-logo--icon" style="--tile:#0f6f8f"><i class="fas fa-id-card" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>TAN</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>e-Proceedings</li><li>Forms</li><li>AR (CA)</li><li>e-Challan</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-traces">
+          <div class="portal-logo portal-logo--icon" style="--tile:#1c8a55"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>TRACES</h4><span class="portal-count">6 services</span></div>
+            <ul class="portal-services"><li>Inbox</li><li>Statements</li><li>Outstanding Demand</li><li>Bank Account</li><li>DSC Register</li><li>Lower/No Deduction Certificates</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-gstat">
+          <div class="portal-logo portal-logo--icon" style="--tile:#9a7416"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>GSTAT</h4><span class="portal-count">5 services</span></div>
+            <ul class="portal-services"><li>E-Filed Cases</li><li>Payment Online</li><li>My Appeal</li><li>Transaction History</li><li>Profile</li></ul>
+          </div>
+        </article>
+        <article class="portal-card" id="portal-icai">
+          <div class="portal-logo portal-logo--icon" style="--tile:#b4502f"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>ICAI</h4><span class="portal-count">3 services</span></div>
+            <ul class="portal-services"><li>E-Diary Timesheets</li><li>E-Diary Attendance</li><li>UDIN</li></ul>
+          </div>
+        </article>
+        <article class="portal-card portal-card--more" id="portal-more">
+          <div class="portal-logo portal-logo--more"><i class="fas fa-plus" aria-hidden="true"></i></div>
+          <div>
+            <div class="portal-head"><h4>And more</h4></div>
+            <p>More portals and services beyond the ones listed here.</p>
+          </div>
+        </article>
+      </div>
+      <div class="sync-modes">
+        <div class="sync-mode"><i class="fas fa-bolt" aria-hidden="true"></i><div><h4>On-demand sync</h4><p>Sync one client or many in bulk at any time, and choose exactly which services to fetch.</p></div></div>
+        <div class="sync-mode"><i class="fas fa-clock" aria-hidden="true"></i><div><h4>Scheduled sync</h4><p>Each organization sets its own schedule, and client data refreshes automatically.</p></div></div>
+      </div>
+    <div class="modules-grid project-modules">
+      <div class="mod-card reveal">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-arrows-rotate"></i></div>
+          <div class="mod-name">Sync Engine</div>
+        </div>
+        <div class="mod-desc">Batch sync across portals with credential management</div>
+        <ul class="mod-list">
+          <li>Database-backed job queue with p-limit throttling</li>
+          <li>Cross-portal data integration (legacy + current)</li>
+          <li>Download state machine for GST document sync</li>
+          <li>AES encryption for stored credentials</li>
+          <li>Dockerized compliance browser sync</li>
+        </ul>
+      </div>
+      <div class="mod-card reveal reveal-delay-1">
+        <div class="mod-top">
+          <div class="mod-icon"><i class="fas fa-bell"></i></div>
+          <div class="mod-name">Notifications &amp; Integrations</div>
+        </div>
+        <div class="mod-desc">Email notifications, ICAI E-Diary portal, and UDIN validation</div>
+        <ul class="mod-list">
+          <li>Cron + API-triggered email via AWS SES</li>
+          <li>EJS templates with dynamic Excel attachments</li>
+          <li>ICAI E-Diary as standalone Node.js service</li>
+          <li>UDIN validation linked to task workflows</li>
+        </ul>
+      </div>
+    </div>
+    </article>
+
+    <article class="project" id="project-platform">
+    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span></div>
+    <h3 class="project-title reveal">Practice Management Platform</h3>
+    <p class="project-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
+    <div class="rag-tech reveal">
+      <span class="next-tech">React.js</span>
+      <span class="next-tech">TypeScript</span>
+      <span class="next-tech">Material UI</span>
+      <span class="next-tech">NestJS</span>
+      <span class="next-tech">TypeORM</span>
+      <span class="next-tech">MySQL</span>
+    </div>
     <ul class="platform-areas reveal" aria-label="Areas of the platform">
       <li>Tasks &amp; Services</li>
       <li>Recurring Compliance</li>
@@ -1558,23 +1719,17 @@ body::before {
       <li>Cloud Storage</li>
       <li>Government Portal Sync</li>
     </ul>
-
-    <!-- Modules -->
-    <h3 class="modules-heading reveal"><i class="fas fa-cubes"></i> Key Modules</h3>
-    <div class="modules-grid">
+    <div class="modules-grid project-modules">
       <div class="mod-card reveal">
         <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-building-columns"></i></div>
-          <div class="mod-name">Statutory Compliance Integration</div>
+          <div class="mod-icon"><i class="fas fa-window-maximize"></i></div>
+          <div class="mod-name">Frontend Applications</div>
         </div>
-        <div class="mod-desc">End-to-end portal integration across 6+ government portals with credential management and batch sync</div>
+        <div class="mod-desc">Reusable, responsive interfaces for dashboards, dynamic forms and data grids</div>
         <ul class="mod-list">
-          <li>80K+ PAN, 30K+ GST, 5.5K+ TAN/TDS credentials</li>
-          <li>Database-backed job queue with p-limit throttling</li>
-          <li>Cross-portal data integration (legacy + current)</li>
-          <li>Download state machine for GST document sync</li>
-          <li>AES encryption for stored credentials</li>
-          <li>Parameterized queries (SQL injection fix)</li>
+          <li>React.js, TypeScript and Material UI components</li>
+          <li>Dynamic forms and data grids for compliance data</li>
+          <li>Frontend performance and UX improvements</li>
         </ul>
       </div>
       <div class="mod-card reveal reveal-delay-1">
@@ -1588,7 +1743,7 @@ body::before {
           <li>Summary widgets to individual records</li>
         </ul>
       </div>
-      <div class="mod-card reveal reveal-delay-2">
+      <div class="mod-card reveal">
         <div class="mod-top">
           <div class="mod-icon"><i class="fas fa-file-import"></i></div>
           <div class="mod-name">Bulk Import Engine</div>
@@ -1603,19 +1758,6 @@ body::before {
       </div>
       <div class="mod-card reveal reveal-delay-1">
         <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-          <div class="mod-name">Multi-Cloud Storage Pipeline</div>
-        </div>
-        <div class="mod-desc">Unified document pipeline across AWS S3, OneDrive, and Google Drive, with folder structure in MongoDB</div>
-        <ul class="mod-list">
-          <li>Centralized session management across modules</li>
-          <li>Dockerized compliance browser sync</li>
-          <li>Telegram-based batch monitoring</li>
-          <li>PM2-managed production deployment</li>
-        </ul>
-      </div>
-      <div class="mod-card reveal reveal-delay-2">
-        <div class="mod-top">
           <div class="mod-icon"><i class="fas fa-cogs"></i></div>
           <div class="mod-name">Super Admin &amp; Config</div>
         </div>
@@ -1627,112 +1769,42 @@ body::before {
           <li>Multi-level checklists and stage tracking</li>
         </ul>
       </div>
-      <div class="mod-card reveal reveal-delay-3">
-        <div class="mod-top">
-          <div class="mod-icon"><i class="fas fa-bell"></i></div>
-          <div class="mod-name">Notifications &amp; Integrations</div>
-        </div>
-        <div class="mod-desc">Email notifications, ICAI E-Diary portal, and UDIN validation</div>
-        <ul class="mod-list">
-          <li>Cron + API-triggered email via AWS SES</li>
-          <li>EJS templates with dynamic Excel attachments</li>
-          <li>ICAI E-Diary as standalone Node.js service</li>
-          <li>UDIN validation linked to task workflows</li>
-        </ul>
-      </div>
     </div>
+    </article>
 
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════ INTEGRATIONS ═══════════ -->
-<section class="section" id="integrations">
-  <div class="container">
-    <div class="section-eyebrow reveal">Integrations</div>
-    <h2 class="section-title reveal">6+ Portals, 30+ Services</h2>
-    <p class="section-desc reveal">Indian tax and professional portals that accountants and company secretaries use every day. Data and documents sync from each one, on demand or on a schedule.</p>
-    <div class="integrations-body reveal" id="portals">
-      <div class="portal-grid">
-        <article class="portal-card" id="portal-income-tax">
-          <div class="portal-logo"><img src="assets/logos/income-tax.png" alt="Income Tax Department logo" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>Income Tax (PAN)</h4><span class="portal-count">9 services</span></div>
-            <ul class="portal-services"><li>e-Proceedings</li><li>Returns</li><li>Returns with Attachments</li><li>Forms</li><li>My CAs</li><li>Outstanding Demand</li><li>e-Challan</li><li>e-Campaign</li><li>Profile</li></ul>
-          </div>
-        </article>
-        <article class="portal-card" id="portal-gst">
-          <div class="portal-logo"><img src="assets/logos/gst.png" alt="Goods and Services Tax logo" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>GST</h4><span class="portal-count">5 services</span></div>
-            <ul class="portal-services"><li>Notices &amp; Orders</li><li>Additional Notices</li><li>Demand</li><li>Ledger Balance</li><li>Profile</li></ul>
-          </div>
-        </article>
-        <article class="portal-card" id="portal-tan">
-          <div class="portal-logo"><img src="assets/logos/income-tax.png" alt="Income Tax Department logo, used for TAN e-Filing" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>TAN</h4><span class="portal-count">5 services</span></div>
-            <ul class="portal-services"><li>e-Proceedings</li><li>Forms</li><li>AR (CA)</li><li>e-Challan</li><li>Profile</li></ul>
-          </div>
-        </article>
-        <article class="portal-card" id="portal-traces">
-          <div class="portal-logo"><img src="assets/logos/traces.png" alt="TDS Centralized Processing Cell logo" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>TRACES</h4><span class="portal-count">6 services</span></div>
-            <ul class="portal-services"><li>Inbox</li><li>Statements</li><li>Outstanding Demand</li><li>Bank Account</li><li>DSC Register</li><li>Lower/No Deduction Certificates</li></ul>
-          </div>
-        </article>
-        <article class="portal-card" id="portal-gstat">
-          <div class="portal-logo"><img src="assets/logos/gstat.png" alt="GST Appellate Tribunal logo" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>GSTAT</h4><span class="portal-count">5 services</span></div>
-            <ul class="portal-services"><li>E-Filed Cases</li><li>Payment Online</li><li>My Appeal</li><li>Transaction History</li><li>Profile</li></ul>
-          </div>
-        </article>
-        <article class="portal-card" id="portal-icai">
-          <div class="portal-logo"><img src="assets/logos/icai.png" alt="Institute of Chartered Accountants of India logo" loading="lazy"></div>
-          <div>
-            <div class="portal-head"><h4>ICAI</h4><span class="portal-count">3 services</span></div>
-            <ul class="portal-services"><li>E-Diary Timesheets</li><li>E-Diary Attendance</li><li>UDIN</li></ul>
-          </div>
-        </article>
-        <article class="portal-card portal-card--more" id="portal-more">
-          <div class="portal-logo portal-logo--more"><i class="fas fa-plus" aria-hidden="true"></i></div>
-          <div>
-            <div class="portal-head"><h4>And more</h4></div>
-            <p>More portals and services beyond the ones listed here.</p>
-          </div>
-        </article>
-      </div>
-      <p class="portal-note">Logos belong to their respective organizations and are shown only to identify the integrations.</p>
-      <div class="sync-modes">
-        <div class="sync-mode"><i class="fas fa-bolt" aria-hidden="true"></i><div><h4>On-demand sync</h4><p>Sync one client or many in bulk at any time, and choose exactly which services to fetch.</p></div></div>
-        <div class="sync-mode"><i class="fas fa-clock" aria-hidden="true"></i><div><h4>Scheduled sync</h4><p>Each organization sets its own schedule, and client data refreshes automatically.</p></div></div>
-      </div>
+    <article class="project" id="project-storage">
+    <div class="project-tags reveal"><span class="project-tag project-tag--work">Work</span></div>
+    <h3 class="project-title reveal">Multi-Cloud Document Storage</h3>
+    <p class="project-desc reveal">A unified document pipeline across AWS S3, Microsoft OneDrive and Google Drive, with the folder structure of documents kept in MongoDB.</p>
+    <div class="rag-tech reveal">
+      <span class="next-tech">AWS S3</span>
+      <span class="next-tech">Google Drive API</span>
+      <span class="next-tech">Microsoft Graph API</span>
+      <span class="next-tech">MongoDB</span>
+      <span class="next-tech">PM2</span>
     </div>
-  </div>
-</section>
+    <ul class="mod-list project-list reveal">
+      <li>Centralized session management across modules</li>
+      <li>Telegram-based batch monitoring</li>
+      <li>PM2-managed production deployment</li>
+    </ul>
+    </article>
 
-<div class="section-divider"></div>
-
-<!-- ═══════════ RAG ASSISTANT ═══════════ -->
-<section class="section" id="rag">
-  <div class="container">
-    <div class="section-eyebrow reveal">Personal Project: AI Integration</div>
-    <h2 class="section-title reveal">Ask in Plain English.<br>Answered From Live Data.</h2>
-    <p class="rag-explain reveal"><strong>RAG (Retrieval-Augmented Generation)</strong> finds the right records first, then gives them to the AI, so every answer comes from real data instead of a guess.</p>
+    <article class="project" id="rag">
+    <div class="project-tags reveal"><span class="project-tag project-tag--personal">Personal</span></div>
+    <h3 class="project-title reveal">RAG Compliance Assistant</h3>
+    <p class="project-desc reveal">A conversational assistant that answers natural-language questions over structured compliance records. For each question, the model calls predefined tools that query the database, then answers from the records they return. Results are limited to the clients each user can access, and credentials and other sensitive fields are removed before data reaches the model. Built on the Anthropic Claude API.</p>
 
     <div class="rag-layout">
       <ul class="rag-steps reveal" id="ragSteps">
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-comments" aria-hidden="true"></i></span><div><h4>Understands plain English</h4><p>Ask naturally, including follow-ups like "break those down".</p></div></li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Respects access</h4><p>Answers only from the clients each user is allowed to see.</p></div></li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Always up to date</h4><p>Every answer comes from current records and matches the dashboards.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span><div><h4>Conversation history</h4><p>Stored by the application and sent with each request, so follow-up questions keep their context.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Access control</h4><p>Every query is limited to the clients the signed-in user can access.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Tool-based retrieval</h4><p>The model calls predefined tools backed by existing service logic, so results match the dashboards.</p></div></li>
         <li class="rag-step">
           <span class="rag-step-num"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
           <div>
-            <h4>Protects sensitive data</h4>
-            <p>Credentials and other sensitive fields stay out of every answer.</p>
+            <h4>Field allow-list</h4>
+            <p>Only approved fields are returned to the model. Credentials are never included.</p>
             <div class="rag-fields" aria-label="Example fields">
               <span class="rag-field"><i class="fas fa-check"></i>client</span>
               <span class="rag-field"><i class="fas fa-check"></i>gstin</span>
@@ -1742,13 +1814,13 @@ body::before {
             </div>
           </div>
         </li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-chart-column" aria-hidden="true"></i></span><div><h4>Clear answers, remembered</h4><p>Text, tables, charts and stats, and the conversation picks up where it left off.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-bolt" aria-hidden="true"></i></span><div><h4>Streaming responses</h4><p>Answers stream as they are generated, as text, tables and stats.</p></div></li>
       </ul>
 
       <div class="rag-chat reveal reveal-delay-1">
         <div class="rag-chat-head">
-          <span class="rag-chat-title">AI Assistant demo</span>
-          <span class="rag-sample">Sample data</span>
+          <span class="rag-chat-title">Assistant demo</span>
+          <span class="rag-sample">Illustrative, sample data</span>
         </div>
         <div class="rag-log" id="ragLog" tabindex="0" aria-label="Sample conversation"></div>
         <div class="rag-prompts" id="ragPrompts">
@@ -1758,7 +1830,7 @@ body::before {
     </div>
 
     <div class="rag-tech reveal">
-      <span class="next-tech">Claude API</span>
+      <span class="next-tech">Anthropic Claude API</span>
       <span class="next-tech">Tool Use</span>
       <span class="next-tech">RAG</span>
       <span class="next-tech">SSE Streaming</span>
@@ -1768,6 +1840,7 @@ body::before {
       <span class="next-tech">MySQL</span>
       <span class="next-tech">React + MUI</span>
     </div>
+    </article>
   </div>
 </section>
 
@@ -1792,10 +1865,10 @@ body::before {
           <div class="tl-company">SaaS product company — Hyderabad, India</div>
           <ul class="tl-points">
             <li>Worked across frontend and backend on government portal integrations</li>
-            <li>Built batch processing pipelines for 115,000+ portal credentials across 1,100+ firms</li>
+            <li>Built batch processing pipelines for portal data sync</li>
             <li>Built multi-cloud document pipeline across AWS S3, OneDrive, and Google Drive</li>
             <li>Developed compliance dashboards with drill-down analytics</li>
-            <li>Implemented security hardening: parameterized queries, AES encryption</li>
+            <li>Applied secure practices, including parameterized queries and encrypted credential storage</li>
             <li>Integrated ICAI E-Diary and UDIN portals with internal task systems</li>
           </ul>
         </div>
@@ -1934,7 +2007,7 @@ body::before {
     <div class="section-eyebrow reveal" style="justify-content:center">Contact</div>
     <h2 class="section-title reveal" style="text-align:center">Let's Connect</h2>
     <p class="section-desc reveal" style="text-align:center;margin:0 auto">
-      Open to opportunities and conversations about frontend, backend and integrating AI into applications.
+      Open to conversations about frontend, backend and AI integration with RAG.
     </p>
     <div class="contact-grid">
       <a href="mailto:mvinay.vn@gmail.com" class="contact-link reveal">
@@ -1959,7 +2032,7 @@ body::before {
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-text">&copy; 2026 Vinay Mathe</p>
+      <p class="footer-text">&copy; 2026 Vinay Mathe<br>Product names and logos belong to their respective owners.</p>
       <div class="footer-socials">
         <a href="mailto:mvinay.vn@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/mvinay01" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -2072,8 +2145,16 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   const keep = [...svg.children];
 
   const AWS_PATH = 'M180.41 203.01c-.72 22.65 10.6 32.68 10.88 39.05a8.164 8.164 0 0 1-4.1 6.27l-12.8 8.96a10.66 10.66 0 0 1-5.63 1.92c-.43-.02-8.19 1.83-20.48-25.61a78.608 78.608 0 0 1-62.61 29.45c-16.28.89-60.4-9.24-58.13-56.21-1.59-38.28 34.06-62.06 70.93-60.05 7.1.02 21.6.37 46.99 6.27v-15.62c2.69-26.46-14.7-46.99-44.81-43.91-2.4.01-19.4-.5-45.84 10.11-7.36 3.38-8.3 2.82-10.75 2.82-7.41 0-4.36-21.48-2.94-24.2 5.21-6.4 35.86-18.35 65.94-18.18a76.857 76.857 0 0 1 55.69 17.28 70.285 70.285 0 0 1 17.67 52.36l-.01 69.29zM93.99 235.4c32.43-.47 46.16-19.97 49.29-30.47 2.46-10.05 2.05-16.41 2.05-27.4-9.67-2.32-23.59-4.85-39.56-4.87-15.15-1.14-42.82 5.63-41.74 32.26-1.24 16.79 11.12 31.4 29.96 30.48zm170.92 23.05c-7.86.72-11.52-4.86-12.68-10.37l-49.8-164.65c-.97-2.78-1.61-5.65-1.92-8.58a4.61 4.61 0 0 1 3.86-5.25c.24-.04-2.13 0 22.25 0 8.78-.88 11.64 6.03 12.55 10.37l35.72 140.83 33.16-140.83c.53-3.22 2.94-11.07 12.8-10.24h17.16c2.17-.18 11.11-.5 12.68 10.37l33.42 142.63L420.98 80.1c.48-2.18 2.72-11.37 12.68-10.37h19.72c.85-.13 6.15-.81 5.25 8.58-.43 1.85 3.41-10.66-52.75 169.9-1.15 5.51-4.82 11.09-12.68 10.37h-18.69c-10.94 1.15-12.51-9.66-12.68-10.75L328.67 110.7l-32.78 136.99c-.16 1.09-1.73 11.9-12.68 10.75h-18.3zm273.48 5.63c-5.88.01-33.92-.3-57.36-12.29a12.802 12.802 0 0 1-7.81-11.91v-10.75c0-8.45 6.2-6.9 8.83-5.89 10.04 4.06 16.48 7.14 28.81 9.6 36.65 7.53 52.77-2.3 56.72-4.48 13.15-7.81 14.19-25.68 5.25-34.95-10.48-8.79-15.48-9.12-53.13-21-4.64-1.29-43.7-13.61-43.79-52.36-.61-28.24 25.05-56.18 69.52-55.95 12.67-.01 46.43 4.13 55.57 15.62 1.35 2.09 2.02 4.55 1.92 7.04v10.11c0 4.44-1.62 6.66-4.87 6.66-7.71-.86-21.39-11.17-49.16-10.75-6.89-.36-39.89.91-38.41 24.97-.43 18.96 26.61 26.07 29.7 26.89 36.46 10.97 48.65 12.79 63.12 29.58 17.14 22.25 7.9 48.3 4.35 55.44-19.08 37.49-68.42 34.44-69.26 34.42zm40.2 104.86c-70.03 51.72-171.69 79.25-258.49 79.25A469.127 469.127 0 0 1 2.83 327.46c-6.53-5.89-.77-13.96 7.17-9.47a637.37 637.37 0 0 0 316.88 84.12 630.22 630.22 0 0 0 241.59-49.55c11.78-5 21.77 7.8 10.12 16.38zm29.19-33.29c-8.96-11.52-59.28-5.38-81.81-2.69-6.79.77-7.94-5.12-1.79-9.47 40.07-28.17 105.88-20.1 113.44-10.63 7.55 9.47-2.05 75.41-39.56 106.91-5.76 4.87-11.27 2.3-8.71-4.1 8.44-21.25 27.39-68.49 18.43-80.02z';
-  const MYSQL_PATH = 'M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z';
-  const MONGO_PATH = 'M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z';
+  const ICONS = {
+    rupee: [320, 'M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z'],
+    receipt: [384, 'M14 2.2C22.5-1.7 32.5-.3 39.6 5.8L80 40.4 120.4 5.8c9-7.7 22.3-7.7 31.2 0L192 40.4 232.4 5.8c9-7.7 22.3-7.7 31.2 0L304 40.4 344.4 5.8c7.1-6.1 17.1-7.5 25.6-3.6s14 12.4 14 21.8V488c0 9.4-5.5 17.9-14 21.8s-18.5 2.5-25.6-3.6L304 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L192 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L80 471.6 39.6 506.2c-7.1 6.1-17.1 7.5-25.6 3.6S0 497.4 0 488V24C0 14.6 5.5 6.1 14 2.2zM96 144c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zM80 352c0 8.8 7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96c-8.8 0-16 7.2-16 16zM96 240c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z'],
+    idCard: [576, 'M0 96l576 0c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96zm0 32V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128H0zM64 405.3c0-29.5 23.9-53.3 53.3-53.3H234.7c29.5 0 53.3 23.9 53.3 53.3c0 5.9-4.8 10.7-10.7 10.7H74.7c-5.9 0-10.7-4.8-10.7-10.7zM176 192a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm176 16c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16z'],
+    search: [512, 'M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zm-312 8v64c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24zm80-96V280c0 13.3 10.7 24 24 24s24-10.7 24-24V120c0-13.3-10.7-24-24-24s-24 10.7-24 24zm80 64v96c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24s-24 10.7-24 24z'],
+    scale: [640, 'M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288H584.4L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320H199.3L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z'],
+    cap: [640, 'M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z'],
+    database: [448, 'M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z'],
+    folderTree: [576, 'M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v96V384c0 35.3 28.7 64 64 64H256V384H64V160H256V96H64V32zM288 192c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V192zm0 288c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V480z'],
+  };
   const DRIVE_PATHS = [
     ['m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z', '#0066da'],
     ['m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z', '#00ac47'],
@@ -2084,13 +2165,19 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   ];
 
   const PORTALS = [
-    { id: 'income-tax', name: 'Income Tax', count: 9, sub: 'e-Proceedings · Returns · Forms +6 more', logo: 'income-tax', color: '#5b9fe8' },
-    { id: 'gst', name: 'GST', count: 5, sub: 'Notices & Orders · Demand +3 more', logo: 'gst', color: '#f09a4f' },
-    { id: 'tan', name: 'TAN', count: 5, sub: 'e-Proceedings · Forms +3 more', logo: 'income-tax', color: '#5b9fe8' },
-    { id: 'traces', name: 'TRACES', count: 6, sub: 'Inbox · Statements · Demand +3 more', logo: 'traces', color: '#3ec47a' },
-    { id: 'gstat', name: 'GSTAT', count: 5, sub: 'E-Filed Cases · Payments +3 more', logo: 'gstat', color: '#d6ad52' },
-    { id: 'icai', name: 'ICAI', count: 3, sub: 'E-Diary Timesheets · Attendance +1 more', logo: 'icai', color: '#d98468' },
+    { id: 'income-tax', name: 'Income Tax', count: 9, sub: 'e-Proceedings · Returns · Forms +6 more', icon: ICONS.rupee, tile: '#1f5fae', color: '#5b9fe8' },
+    { id: 'gst', name: 'GST', count: 5, sub: 'Notices & Orders · Demand +3 more', icon: ICONS.receipt, tile: '#c7641a', color: '#f09a4f' },
+    { id: 'tan', name: 'TAN', count: 5, sub: 'e-Proceedings · Forms +3 more', icon: ICONS.idCard, tile: '#0f6f8f', color: '#5b9fe8' },
+    { id: 'traces', name: 'TRACES', count: 6, sub: 'Inbox · Statements · Demand +3 more', icon: ICONS.search, tile: '#1c8a55', color: '#3ec47a' },
+    { id: 'gstat', name: 'GSTAT', count: 5, sub: 'E-Filed Cases · Payments +3 more', icon: ICONS.scale, tile: '#9a7416', color: '#d6ad52' },
+    { id: 'icai', name: 'ICAI', count: 3, sub: 'E-Diary Timesheets · Attendance +1 more', icon: ICONS.cap, tile: '#b4502f', color: '#d98468' },
   ];
+
+  // Draws an icon centred on the origin, at the given height
+  const drawIcon = (g, [w, d], fill, height) => {
+    const k = height / 512;
+    el('path', { d, fill, transform: `translate(${-w * k / 2} ${-256 * k}) scale(${k})` }, g);
+  };
 
   function el(tag, attrs, parent, text) {
     const node = document.createElementNS(NS, tag);
@@ -2113,9 +2200,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     [[-17, -17, '#f25022'], [1, -17, '#7fba00'], [-17, 1, '#00a4ef'], [1, 1, '#ffb900']].forEach(([x, y, fill]) =>
       el('rect', { x, y, width: 16, height: 16, fill }, g));
   };
-  const drawMongo = (g) => {
-    el('path', { d: MONGO_PATH, fill: '#47a248', transform: 'translate(-20 -20) scale(1.67)' }, g);
-  };
+  const drawDocDb = (g) => drawIcon(g, ICONS.folderTree, '#47a248', 36);
   const drawMail = (g) => {
     el('rect', { x: -18, y: -13, width: 36, height: 26, rx: 4, fill: '#182f53' }, g);
     el('path', { d: 'M-15-9 0 3 15-9', fill: 'none', stroke: '#ffcc40', 'stroke-width': 2.4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
@@ -2138,10 +2223,10 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     { name: 'Google Drive', sub: 'Drive API', draw: drawDrive, color: '#2684fc' },
     { name: 'Microsoft OneDrive', short: 'OneDrive', sub: 'Graph API', draw: drawMicrosoft, color: '#00a4ef' },
   ];
-  const MONGO = { name: 'MongoDB', sub: 'Folder structure of documents', draw: drawMongo, color: '#47a248' };
+  const DOC_DB = { name: 'Document Database', sub: 'Folder structure of documents', draw: drawDocDb, color: '#47a248' };
   const MAIL = { name: 'Email alerts', sub: 'Deadlines · Notices · Excel', draw: drawMail, color: '#ffcc40' };
   const CLIENTS = { name: 'Clients', sub: 'Notified before due dates', draw: drawClients, color: '#ffcc40' };
-  const MYSQL_COLOR = '#2fb6d6';
+  const TABLE_COLOR = '#2fb6d6';
 
   function wideLayout() {
     const hub = { x: 690, y: 340, r: 84 };
@@ -2171,10 +2256,10 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       out(896, y, [-62, -40, -18][i], c.color, 'cloud', i);
       paths.push({ d: `M1128 ${y}C1178 ${y} 1178 164 1218 164`, color: c.color, kind: 'mongo', i });
     });
-    nodes.push({ ...MONGO, x: 1250, y: 164, size: 50, label: 'right' });
+    nodes.push({ ...DOC_DB, x: 1250, y: 164, size: 50, label: 'right' });
 
-    out(892, 416, 18, MYSQL_COLOR, 'data', 0);
-    paths.push({ d: 'M1216 416L1250 416', color: MYSQL_COLOR, kind: 'dash', i: 0 });
+    out(892, 416, 18, TABLE_COLOR, 'data', 0);
+    paths.push({ d: 'M1216 416L1250 416', color: TABLE_COLOR, kind: 'dash', i: 0 });
 
     nodes.push({ ...MAIL, x: 930, y: 590, size: 50, label: 'right' });
     nodes.push({ ...CLIENTS, x: 1295, y: 590, size: 50, label: 'right' });
@@ -2199,13 +2284,9 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
         { x: 587, y: 40, w: 206, h: 40, icon: 'bolt', name: 'On-demand sync', sub: 'One client or bulk, anytime' },
         { x: 587, y: 86, w: 206, h: 40, icon: 'clock', name: 'Scheduled sync', sub: 'Automatic, per organization' },
       ],
-      cards: { mysql: { x: 896, y: 348, w: 320, h: 136 }, dash: { x: 1250, y: 348, w: 240, h: 136 } },
+      cards: { table: { x: 896, y: 348, w: 320, h: 136 }, dash: { x: 1250, y: 348, w: 240, h: 136 } },
       tree: { x: 1285, y: 206 },
-      foot: [
-        [690, 448, '1,100+ firms across India', 'fs-sub fs-halo'],
-        [690, 465, '115K+ credentials', 'fs-sub fs-halo'],
-        [690, 483, 'and still counting', 'fs-live fs-halo'],
-      ],
+      foot: [],
     };
   }
 
@@ -2235,9 +2316,9 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       paths.push({ d: `M${sx} ${sy}C${sx} ${sy + 50} ${cols[i]} 480 ${cols[i]} 524`, color: c.color, kind: 'cloud', i });
       paths.push({ d: `M${cols[i]} 604C${cols[i]} 625 200 615 200 636`, color: c.color, kind: 'mongo', i });
     });
-    nodes.push({ ...MONGO, x: 200, y: 664, size: 52, label: 'below', sub: 'Folder structure' });
-    paths.push({ d: `M${hub.x - 52} ${hub.y + 40}C70 440 18 470 18 560L18 800C18 815 26 818 36 818`, color: MYSQL_COLOR, kind: 'data', i: 0 });
-    paths.push({ d: 'M200 878L200 906', color: MYSQL_COLOR, kind: 'dash', i: 0 });
+    nodes.push({ ...DOC_DB, x: 200, y: 664, size: 52, label: 'below', sub: 'Folder structure' });
+    paths.push({ d: `M${hub.x - 52} ${hub.y + 40}C70 440 18 470 18 560L18 800C18 815 26 818 36 818`, color: TABLE_COLOR, kind: 'data', i: 0 });
+    paths.push({ d: 'M200 878L200 906', color: TABLE_COLOR, kind: 'dash', i: 0 });
     nodes.push({ ...MAIL, x: 290, y: 1092, size: 52, label: 'below', sub: 'Deadlines · Notices · Excel' });
     nodes.push({ ...CLIENTS, x: 110, y: 1092, size: 52, label: 'below', sub: 'Notified on time' });
     paths.push({ d: `M${hub.x + 52} ${hub.y + 40}C330 440 384 470 384 560L384 1050C384 1078 352 1092 320 1092`, color: MAIL.color, kind: 'mail', i: 0 });
@@ -2251,12 +2332,10 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
         [376, 1044, 'end', 'NOTIFICATIONS'],
       ],
       pills: [],
-      cards: { mysql: { x: 36, y: 758, w: 328, h: 120 }, dash: { x: 36, y: 906, w: 328, h: 112 } },
+      cards: { table: { x: 36, y: 758, w: 328, h: 120 }, dash: { x: 36, y: 906, w: 328, h: 112 } },
       foot: [
         [200, 256, '+ more portals and services', 'fs-sub fs-halo'],
         [200, 34, 'On-demand + scheduled sync', 'fs-live fs-halo'],
-        [200, 458, '1,100+ firms across India', 'fs-sub fs-halo'],
-        [200, 474, '115K+ credentials, still counting', 'fs-sub fs-halo'],
       ],
     };
   }
@@ -2362,10 +2441,9 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     const wrap = n.href ? el('a', { href: n.href, class: 'fs-link', 'aria-label': `${n.name} details` }, layer) : el('g', {}, layer);
     const half = n.size / 2;
     const g = el('g', { transform: `translate(${n.x} ${n.y})` }, wrap);
-    el('rect', { class: 'fs-tile', x: -half, y: -half, width: n.size, height: n.size, rx: 12, fill: '#fff', stroke: n.color, 'stroke-opacity': 0.55, 'stroke-width': 1.5 }, g);
-    if (n.logo) {
-      const pad = 4;
-      el('image', { href: `assets/logos/${n.logo}.png`, x: -half + pad, y: -half + pad, width: n.size - pad * 2, height: n.size - pad * 2 }, g);
+    el('rect', { class: 'fs-tile', x: -half, y: -half, width: n.size, height: n.size, rx: 12, fill: n.tile || '#fff', stroke: n.color, 'stroke-opacity': 0.55, 'stroke-width': 1.5 }, g);
+    if (n.icon) {
+      drawIcon(g, n.icon, '#fff', n.size * 0.5);
     } else {
       n.draw(el('g', { transform: `scale(${n.size / 58})` }, g));
     }
@@ -2389,17 +2467,15 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     return g;
   }
 
-  function drawMysqlCard(layer, c, still) {
-    const g = cardFrame(layer, c, MYSQL_COLOR, 'MySQL', 'Data in structured tables', (i) => {
-      el('path', { d: MYSQL_PATH, fill: '#00758f', transform: 'translate(-11 -11) scale(0.92)' }, i);
-    });
+  function drawTableCard(layer, c, still) {
+    const g = cardFrame(layer, c, TABLE_COLOR, 'Relational Database', 'Data in structured tables', (i) => drawIcon(i, ICONS.database, '#00758f', 18));
     const x0 = 9;
     const tw = c.w - 18;
     const top = 42;
     const rowH = 15;
     const cols = [['Client', 0.3], ['Case type', 0.3], ['FY', 0.14], ['Due', 0.12], ['Status', 0.14]];
     const rows = Math.floor((c.h - top - rowH - 7) / rowH);
-    el('rect', { x: x0, y: top, width: tw, height: rowH, rx: 3, fill: MYSQL_COLOR, 'fill-opacity': 0.2 }, g);
+    el('rect', { x: x0, y: top, width: tw, height: rowH, rx: 3, fill: TABLE_COLOR, 'fill-opacity': 0.2 }, g);
     if (rows > 0 && !still) {
       const sweep = el('rect', { x: x0, y: top + rowH, width: tw, height: rowH, fill: '#00e0b0', 'fill-opacity': 0.14 }, g);
       const ys = Array.from({ length: rows }, (_, r) => top + rowH * (r + 1));
@@ -2532,7 +2608,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     });
     drawHub(el('g', {}, svg), layout.hub, still);
     const panels = el('g', {}, svg);
-    drawMysqlCard(panels, layout.cards.mysql, still);
+    drawTableCard(panels, layout.cards.table, still);
     drawDashCard(panels, layout.cards.dash, still);
     if (layout.tree) drawTree(panels, layout.tree);
     layout.pills.forEach((p) => drawPill(panels, p));
