@@ -17,10 +17,10 @@ try {
 <meta name="description" content="Vinay Mathe, Full-Stack Software Engineer building web applications and RAG-based AI assistants.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vinaym001.github.io/">
-<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=5">
+<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=6">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vinay Mathe, Full-Stack Software Engineer, with small animations of three projects: Atom, Atom Pro and a RAG-based AI assistant">
+<meta property="og:image:alt" content="Vinay Mathe, Full-Stack Software Engineer, with cards for three projects: Atom, Atom Pro and a RAG-based AI assistant">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Vinay Mathe — Software Engineer">
 <meta property="og:description" content="Full-stack software engineer building web applications and RAG-based AI assistants.">
@@ -1469,6 +1469,11 @@ body::before {
 .showcase-name { font-size: 15px; }
 .showcase-link { margin-top: auto; padding-top: 4px; }
 .showcase-card .mini-svg { max-width: 620px; margin: 0 auto; }
+/* Atom has no animation, so its text sits in the middle of the card */
+.showcase-card--text .showcase-body { justify-content: center; gap: 10px; padding: 24px; }
+.showcase-card--text .showcase-name { font-size: 20px; }
+.showcase-card--text .showcase-desc { font-size: 14.5px; }
+.showcase-card--text .showcase-link { margin-top: 0; }
 /* The page already leaves 80px for the menu when jumping to a section */
 .project { scroll-margin-top: -36px; }
 .project:first-of-type { scroll-margin-top: 0; }
@@ -1527,8 +1532,7 @@ body::before {
     <div class="showcase">
       <h2 class="showcase-title">My Projects</h2>
       <div class="showcase-grid">
-        <a class="showcase-card" href="#project-atom">
-          <div class="flow-stage"><svg class="mini-svg" id="miniAtom" role="img" aria-label="Practice management modules connecting through the Atom platform to dashboards, reports, communication and storage"></svg></div>
+        <a class="showcase-card showcase-card--text" href="#project-atom">
           <div class="showcase-body">
             <div class="showcase-name">Atom: Practice Management Platform</div>
             <div class="showcase-desc">Tasks, clients, billing, timesheets, attendance and reports for CAs, CSs and legal professionals.</div>
@@ -1614,7 +1618,6 @@ body::before {
     <p class="section-desc reveal">Products I work on at Vider Business Solutions, and AI integration with RAG.</p>
 
     <article class="project" id="project-atom">
-    <div class="flow-stage"><svg class="mini-svg" id="atomStage" role="img" aria-label="Atom modules such as tasks, clients, billing, timesheets, attendance and leads connecting through the platform to dashboards, reports, communication, cloud storage, the DSC register and document tracking"></svg></div>
     <h3 class="project-title reveal">Atom: Practice Management Platform</h3>
     <p class="project-desc reveal">A SaaS practice management and compliance platform for CAs, CSs, CMAs and legal professionals across India. I work across the platform, on both frontend and backend.</p>
     <div class="rag-tech reveal">
@@ -2193,18 +2196,6 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     database: [448, 'M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z'],
     userLock: [640, 'M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H392.6c-5.4-9.4-8.6-20.3-8.6-32V352c0-2.1 .1-4.2 .3-6.3c-31-26-71-41.7-114.6-41.7H178.3zM528 240c17.7 0 32 14.3 32 32v48H496V272c0-17.7 14.3-32 32-32zm-80 32v48c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32V272c0-44.2-35.8-80-80-80s-80 35.8-80 80z'],
     shield: [512, 'M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z'],
-    tasks: [512, 'M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z'],
-    users: [640, 'M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z'],
-    invoice: [384, 'M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 80c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm128 72c8.8 0 16 7.2 16 16v17.3c8.5 1.2 16.7 3.1 24.1 5.1c8.5 2.3 13.6 11 11.3 19.6s-11 13.6-19.6 11.3c-11.1-3-22-5.2-32.1-5.3c-8.4-.1-17.4 1.8-23.6 5.5c-5.7 3.4-8.1 7.3-8.1 12.8c0 3.7 1.3 6.5 7.3 10.1c6.9 4.1 16.6 7.1 29.2 10.9l.5 .1 0 0 0 0c11.3 3.4 25.3 7.6 36.3 14.6c12.1 7.6 22.4 19.7 22.7 38.2c.3 19.3-9.6 33.3-22.9 41.6c-7.7 4.8-16.4 7.6-25.1 9.1V440c0 8.8-7.2 16-16 16s-16-7.2-16-16V422.2c-11.2-2.1-21.7-5.7-30.9-8.9l0 0 0 0c-2.1-.7-4.2-1.4-6.2-2.1c-8.4-2.8-12.9-11.9-10.1-20.2s11.9-12.9 20.2-10.1c2.5 .8 4.8 1.6 7.1 2.4l0 0 0 0 0 0c13.6 4.6 24.6 8.4 36.3 8.7c9.1 .3 17.9-1.7 23.7-5.3c5.1-3.2 7.9-7.3 7.8-14c-.1-4.6-1.8-7.8-7.7-11.6c-6.8-4.3-16.5-7.4-29-11.2l-1.6-.5 0 0c-11-3.3-24.3-7.3-34.8-13.7c-12-7.2-22.6-18.9-22.7-37.3c-.1-19.4 10.8-32.8 23.8-40.5c7.5-4.4 15.8-7.2 24.1-8.7V232c0-8.8 7.2-16 16-16z'],
-    clock: [512, 'M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z'],
-    calendar: [448, 'M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z'],
-    lead: [640, 'M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z'],
-    chart: [512, 'M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z'],
-    report: [384, 'M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z'],
-    message: [640, 'M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2 0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.3-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9l0 0 0 0-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z'],
-    folder: [576, 'M88.7 223.8L0 375.8V96C0 60.7 28.7 32 64 32H181.5c17 0 33.3 6.7 45.3 18.7l26.5 26.5c12 12 28.3 18.7 45.3 18.7H416c35.3 0 64 28.7 64 64v32H144c-22.8 0-43.8 12.1-55.3 31.8zm27.6 16.1C122.1 230 132.6 224 144 224H544c11.5 0 22 6.1 27.7 16.1s5.7 22.2-.1 32.1l-112 192C453.9 474 443.4 480 432 480H32c-11.5 0-22-6.1-27.7-16.1s-5.7-22.2 .1-32.1l112-192z'],
-    key: [512, 'M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z'],
-    exchange: [448, 'M438.6 150.6c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.7 96 32 96C14.3 96 0 110.3 0 128s14.3 32 32 32l306.7 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96zm-333.3 352c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 416 416 416c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96z'],
     folderTree: [576, 'M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v96V384c0 35.3 28.7 64 64 64H256V384H64V160H256V96H64V32zM288 192c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4L409.4 9.4c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V192zm0 288c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H445.3c-8.5 0-16.6-3.4-22.6-9.4l-13.3-13.3c-6-6-14.1-9.4-22.6-9.4H320c-17.7 0-32 14.3-32 32V480z'],
   };
   const DRIVE_PATHS = [
@@ -2505,8 +2496,6 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       const t = el('text', { x: half + 12, y: n.sub ? -3 : 5, class: 'fs-name' }, g, n.name);
       if (n.count) el('tspan', { dx: 8, class: 'fs-count' }, t, `${n.count} services`);
       if (n.sub) el('text', { x: half + 12, y: 14, class: 'fs-sub' }, g, n.sub);
-    } else if (n.label === 'left') {
-      el('text', { x: -half - 12, y: 5, 'text-anchor': 'end', class: 'fs-name' }, g, n.name);
     } else if (n.label === 'below') {
       el('text', { x: 0, y: half + 18, 'text-anchor': 'middle', class: 'fs-name fs-halo' }, g, n.name);
       if (n.sub) el('text', { x: 0, y: half + 33, 'text-anchor': 'middle', class: 'fs-sub fs-halo' }, g, n.sub);
@@ -2773,53 +2762,8 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     });
   }
 
-  // Same flow at two sizes: tiles only in the card, labelled inside the Atom project
-  function renderAtom(id, prefix, labelled, still) {
-    const target = document.getElementById(id);
-    if (!target) return;
-    const big = labelled && !narrow.matches;
-    const box = big ? { w: 900, h: 390, r: 72, tile: 44, gap: 62, top: 40, tileL: 40, tileR: 860, lineL: 208, lineR: 678, spread: 22 }
-      : { w: 560, h: 300, r: 56, tile: 36, gap: 48.8, top: 28, tileL: 34, tileR: 526, lineL: 52, lineR: 508, spread: 15 };
-    const hub = { x: box.w / 2, y: box.h / 2, r: box.r };
-    const edge = (dy) => Math.sqrt(hub.r * hub.r - dy * dy);
-    const modules = [
-      { name: 'Tasks & Services', icon: ICONS.tasks, tile: '#1f5fae', color: '#5b9fe8', items: ['rec', 'dot', 'pdf'] },
-      { name: 'Clients', icon: ICONS.users, tile: '#0f6f8f', color: '#2fb6d6', items: ['rec', 'dot', 'xls'] },
-      { name: 'Billing', icon: ICONS.invoice, tile: '#1c8a55', color: '#3ec47a', items: ['pdf', 'dot', 'rec'] },
-      { name: 'Timesheets', icon: ICONS.clock, tile: '#9a7416', color: '#d6ad52', items: ['rec', 'dot2', 'xls'] },
-      { name: 'Attendance', icon: ICONS.calendar, tile: '#b4502f', color: '#d98468', items: ['dot', 'rec'] },
-      { name: 'Leads', icon: ICONS.lead, tile: '#6a4fd1', color: '#a99cff', items: ['rec', 'dot2'] },
-    ];
-    const outputs = [
-      { name: 'Dashboards', icon: ICONS.chart, tile: '#5a46e6', color: '#a99cff', items: ['dot', 'dot2'] },
-      { name: 'Reports', icon: ICONS.report, tile: '#0f6f8f', color: '#2fb6d6', items: ['xls', 'pdf'] },
-      { name: 'Email & WhatsApp', icon: ICONS.message, tile: '#1c8a55', color: '#3ec47a', items: ['mail'] },
-      { name: 'Cloud Storage', icon: ICONS.folder, tile: '#c7641a', color: '#f09a4f', items: ['folder', 'doc'] },
-      { name: 'DSC Register', icon: ICONS.key, tile: '#9a7416', color: '#d6ad52', items: ['rec'] },
-      { name: 'Document In/Out', icon: ICONS.exchange, tile: '#b4502f', color: '#d98468', items: ['doc', 'pdf'] },
-    ];
-    const paths = [];
-    const nodes = [];
-    modules.forEach((m, i) => {
-      const y = box.top + i * box.gap;
-      const dy = (i - 2.5) * box.spread;
-      nodes.push({ ...m, x: box.tileL, y, size: box.tile, label: big ? 'right' : 'none' });
-      paths.push({ d: `M${box.lineL} ${y}C${box.lineL + 95} ${y} ${hub.x - edge(dy) - 80} ${hub.y + dy} ${hub.x - edge(dy)} ${hub.y + dy}`, color: m.color, i, mini: { dur: 6 + i * 0.4, items: m.items } });
-    });
-    outputs.forEach((o, i) => {
-      const y = box.top + i * box.gap;
-      const dy = (i - 2.5) * box.spread;
-      nodes.push({ ...o, x: box.tileR, y, size: box.tile, label: big ? 'left' : 'none' });
-      paths.push({ d: `M${hub.x + edge(dy)} ${hub.y + dy}C${hub.x + edge(dy) + 80} ${hub.y + dy} ${box.lineR - 95} ${y} ${box.lineR} ${y}`, color: o.color, i, mini: { dur: 5 + i * 0.3, items: o.items } });
-    });
-    drawMini(target, prefix, hub, 'ATOM', 'PLATFORM', paths, nodes, still);
-    target.setAttribute('viewBox', `0 0 ${box.w} ${box.h}`);
-  }
-
   function renderAll() {
     render();
-    renderAtom('miniAtom', 'fsMiniAtom', false, reduced.matches);
-    renderAtom('atomStage', 'fsAtomStage', true, reduced.matches);
     renderMiniFlow(reduced.matches);
     renderMiniRag(reduced.matches);
   }
@@ -2828,7 +2772,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   narrow.addEventListener('change', renderAll);
   reduced.addEventListener('change', renderAll);
 
-  ['miniAtom', 'atomStage', 'miniFlow', 'miniRag'].forEach((id) => {
+  ['miniFlow', 'miniRag'].forEach((id) => {
     const mini = document.getElementById(id);
     if (!mini) return;
     new IntersectionObserver(([entry]) => {
