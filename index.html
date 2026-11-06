@@ -14,16 +14,16 @@ try {
 } catch (e) {}
 </script>
 <title>Vinay Mathe — Software Engineer</title>
-<meta name="description" content="Vinay Mathe, Full-Stack Software Engineer building web applications and RAG-based AI assistants.">
+<meta name="description" content="Vinay Mathe, Full-Stack Software Engineer building web applications and AI features with LLM tool calling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vinaym001.github.io/">
-<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=6">
+<meta property="og:image" content="https://vinaym001.github.io/assets/og-preview.png?v=7">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vinay Mathe, Full-Stack Software Engineer, with cards for three projects: Atom, Atom Pro and a RAG-based AI assistant">
+<meta property="og:image:alt" content="Vinay Mathe, Full-Stack Software Engineer, with cards for three projects: Atom, Atom Pro and an AI assistant for GST compliance data">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Vinay Mathe — Software Engineer">
-<meta property="og:description" content="Full-stack software engineer building web applications and RAG-based AI assistants.">
+<meta property="og:description" content="Full-stack software engineer building web applications and AI features with LLM tool calling.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6aff'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fff'%3EVM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -963,7 +963,7 @@ body::before {
 .portal-note { margin-top: 14px; font-size: 12px; color: var(--text-300); }
 
 /* ═══════════════════════════════════════════
-   RAG ASSISTANT
+   AI ASSISTANT
    ═══════════════════════════════════════════ */
 .rag-layout {
   display: grid;
@@ -1396,7 +1396,7 @@ body::before {
   border-radius: 100px;
   border: 1px solid currentColor;
 }
-.project-tag--personal { color: var(--accent-soft); }
+.project-tag--prototype { color: var(--accent-soft); }
 .project-title {
   font-family: var(--font-heading);
   font-size: 28px;
@@ -1525,7 +1525,7 @@ body::before {
     <div class="hero-head">
       <div>
         <h1 class="hero-name">Vinay <span class="highlight">Mathe.</span></h1>
-        <p class="hero-role"><strong>Full-Stack Software Engineer.</strong> Building web applications and RAG-based AI assistants.</p>
+        <p class="hero-role"><strong>Full-Stack Software Engineer.</strong> Building web applications and AI features with LLM tool calling.</p>
       </div>
       <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Contact Me</a>
     </div>
@@ -1547,11 +1547,11 @@ body::before {
             <span class="showcase-link">View project <i class="fas fa-arrow-down" aria-hidden="true"></i></span>
           </div>
         </a>
-        <a class="showcase-card" href="#rag">
-          <div class="flow-stage"><svg class="mini-svg" id="miniRag" role="img" aria-label="A question passing through access scope, retrieval tools and a field allow-list before the answer is returned"></svg></div>
+        <a class="showcase-card" href="#ai-assistant">
+          <div class="flow-stage"><svg class="mini-svg" id="miniRag" role="img" aria-label="A question passing through access scope, an approved query catalogue and a field allow-list before the answer is returned"></svg></div>
           <div class="showcase-body">
-            <div class="showcase-name">RAG-Based AI Assistant <span class="project-tag project-tag--personal">Personal</span></div>
-            <div class="showcase-desc">Natural-language queries over structured data, grounded in retrieved records.</div>
+            <div class="showcase-name">AI Assistant for GST Compliance Data <span class="project-tag project-tag--prototype">Prototype</span></div>
+            <div class="showcase-desc">Natural-language questions over GST compliance data, answered from read-only queries in Atom Pro.</div>
             <span class="showcase-link">View project <i class="fas fa-arrow-down" aria-hidden="true"></i></span>
           </div>
         </a>
@@ -1579,8 +1579,8 @@ body::before {
           processing with NestJS, TypeORM and MySQL, along with third-party and cloud storage integrations.
         </p>
         <p>
-          I also work on AI integration with RAG, connecting language models to application data through
-          tool-based retrieval, with access controls and protection for sensitive fields.
+          I also build AI features with LLM tool calling, connecting language models to structured application
+          data through an approved query catalogue, with server-side access controls and protection for sensitive fields.
         </p>
       </div>
       <div class="about-cards">
@@ -1601,8 +1601,8 @@ body::before {
         </div>
         <div class="about-card reveal reveal-delay-3">
           <div class="about-card-icon"><i class="fas fa-robot"></i></div>
-          <div class="about-card-title">AI Integration with RAG</div>
-          <div class="about-card-desc">Tool-based retrieval and access controls with the Claude API</div>
+          <div class="about-card-title">AI Integration</div>
+          <div class="about-card-desc">LLM tool calling over structured data with the Claude API</div>
         </div>
       </div>
     </div>
@@ -1615,7 +1615,7 @@ body::before {
 <section class="section" id="projects">
   <div class="container">
     <h2 class="section-title reveal">Projects</h2>
-    <p class="section-desc reveal">Products I work on at Vider Business Solutions, and AI integration with RAG.</p>
+    <p class="section-desc reveal">Products I work on at Vider Business Solutions, including an AI assistant prototype in Atom Pro.</p>
 
     <article class="project" id="project-atom">
     <h3 class="project-title reveal">Atom: Practice Management Platform</h3>
@@ -1827,17 +1827,17 @@ body::before {
     </div>
     </article>
 
-    <article class="project" id="rag">
+    <article class="project" id="ai-assistant">
     <div class="rag-layout">
       <ul class="rag-steps reveal" id="ragSteps">
         <li class="rag-step"><span class="rag-step-num"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span><div><h4>Conversation State</h4><p>History is persisted by the application and replayed on each request, preserving context across follow-up questions.</p></div></li>
         <li class="rag-step"><span class="rag-step-num"><i class="fas fa-user-lock" aria-hidden="true"></i></span><div><h4>Access Scoping</h4><p>Every query is restricted server-side to the organization and clients the authenticated user can access.</p></div></li>
-        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Tool-Based Retrieval</h4><p>Typed tools wrap existing service methods, reusing their validation and de-duplication rules.</p></div></li>
+        <li class="rag-step"><span class="rag-step-num"><i class="fas fa-database" aria-hidden="true"></i></span><div><h4>Query Catalogue</h4><p>The model picks filters, groupings and measures from an approved catalogue. The server validates the request and runs a parameterized, read-only query.</p></div></li>
         <li class="rag-step">
           <span class="rag-step-num"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
           <div>
             <h4>Field Allow-List</h4>
-            <p>Tool output is mapped to approved fields before it enters the model context. Credentials are never included.</p>
+            <p>Tool output is mapped to approved fields before it enters the model context. Credentials and personal data are never included.</p>
             <div class="rag-fields" aria-label="Example fields">
               <span class="rag-field"><i class="fas fa-check"></i>client</span>
               <span class="rag-field"><i class="fas fa-check"></i>gstin</span>
@@ -1861,15 +1861,16 @@ body::before {
         </div>
       </div>
     </div>
-    <h3 class="project-title reveal">RAG-Based AI Assistant <span class="project-tag project-tag--personal">Personal</span></h3>
-    <p class="project-desc reveal">A retrieval-augmented generation (RAG) assistant that adds a natural-language query layer to structured compliance data. Questions are resolved through model-driven tool calls against existing service logic, so each response is grounded in retrieved records and reconciles with the application's dashboards. Access scopes are enforced on the server, and a field allow-list keeps credentials and other sensitive attributes out of the model context. Built on the Anthropic Claude API, with prompt caching and streamed responses.</p>
+    <h3 class="project-title reveal">AI Assistant for GST Compliance Data <span class="project-tag project-tag--prototype">Prototype</span></h3>
+    <p class="project-desc reveal">A prototype in Atom Pro that answers natural-language questions over structured GST compliance data, built on the Anthropic Claude API with tool calling. The model turns each question into a request against an approved query catalogue of filters, groupings, measures and cross-dataset comparisons. The server validates the request, applies the user's access scope and runs a parameterized, read-only query, so every figure is grounded in retrieved records. Answers were checked against the application's own screens on staging data, across organizations, user access levels and financial years. A field allow-list keeps credentials and personal data out of the model context, with prompt caching, streamed responses and per-run logging for evaluation.</p>
 
     <div class="rag-tech reveal">
       <span class="next-tech">Anthropic Claude API</span>
-      <span class="next-tech">Tool Use</span>
-      <span class="next-tech">RAG</span>
+      <span class="next-tech">Tool Calling</span>
+      <span class="next-tech">Read-Only SQL</span>
       <span class="next-tech">SSE Streaming</span>
       <span class="next-tech">Prompt Caching</span>
+      <span class="next-tech">LLM Evaluation</span>
       <span class="next-tech">NestJS</span>
       <span class="next-tech">TypeORM</span>
       <span class="next-tech">MySQL</span>
@@ -1909,6 +1910,7 @@ body::before {
             <li>Built super admin service customization with organization-level overrides and cross-instance move to production</li>
             <li>Added task milestone and custom reports, timesheet exports and expense updates</li>
             <li>Integrated ICAI E-Diary and UDIN with task, log hour and timer workflows</li>
+            <li>Built a prototype AI assistant for GST compliance data in Atom Pro, using Claude tool calling over an approved query catalogue and verified against the application's screens on staging</li>
             <li>Improved multi-cloud document storage across AWS S3, OneDrive and Google Drive, including folder creation and re-authorization</li>
             <li>Applied secure practices, including parameterized queries and encrypted credential storage</li>
           </ul>
@@ -2028,8 +2030,8 @@ body::before {
             </div>
             <div class="skill-pills">
               <span class="pill">Claude API</span>
-              <span class="pill">RAG</span>
-              <span class="pill">Tool Use</span>
+              <span class="pill">Tool Calling</span>
+              <span class="pill">LLM Evaluation</span>
               <span class="pill">SSE Streaming</span>
               <span class="pill">Prompt Caching</span>
             </div>
@@ -2048,7 +2050,7 @@ body::before {
     <div class="section-eyebrow reveal" style="justify-content:center">Contact</div>
     <h2 class="section-title reveal" style="text-align:center">Let's Connect</h2>
     <p class="section-desc reveal" style="text-align:center;margin:0 auto">
-      Open to conversations about frontend, backend and AI integration with RAG.
+      Open to conversations about frontend, backend and AI integration.
     </p>
     <div class="contact-grid">
       <a href="mailto:mvinay.vn@gmail.com" class="contact-link reveal">
@@ -2732,7 +2734,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
     const hub = { x: 264, y: 150, r: 56 };
     const nodes = [
       { name: 'Access Scope', sub: 'Per-user clients', icon: ICONS.userLock, tile: '#1f5fae', color: '#5b9fe8', x: 396, y: 62, size: 36, label: 'right' },
-      { name: 'Retrieval Tools', sub: 'Service-backed queries', icon: ICONS.database, tile: '#0f6f8f', color: '#2fb6d6', x: 396, y: 150, size: 36, label: 'right' },
+      { name: 'Query Catalogue', sub: 'Read-only queries', icon: ICONS.database, tile: '#0f6f8f', color: '#2fb6d6', x: 396, y: 150, size: 36, label: 'right' },
       { name: 'Field Allow-List', sub: 'Credentials blocked', icon: ICONS.shield, tile: '#1c8a55', color: '#00e0b0', x: 396, y: 238, size: 36, label: 'right' },
     ];
     const paths = [
@@ -2743,7 +2745,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
       { d: 'M378 238C345 238 330 210 306 187', color: '#00e0b0', i: 4, mini: { dur: 3.6, items: ['rec'] } },
       { d: 'M225 190C215 200 210 214 186 220', color: '#00e0b0', i: 5, mini: { dur: 3.2, items: ['dot', 'dot2'] } },
     ];
-    drawMini(target, 'fsMiniRag', hub, 'RAG', 'ASSISTANT', paths, nodes, still, (g) => {
+    drawMini(target, 'fsMiniRag', hub, 'AI', 'ASSISTANT', paths, nodes, still, (g) => {
       el('text', { x: 14, y: 40, class: 'fs-head' }, g, 'QUESTION');
       el('rect', { x: 14, y: 50, width: 172, height: 42, rx: 12, fill: '#7c6aff' }, g);
       el('text', { x: 100, y: 75, 'text-anchor': 'middle', class: 'fs-name fs-name-sm' }, g, 'Notices due this week?');
@@ -2787,7 +2789,7 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   }).observe(svg);
 })();
 
-// RAG assistant demo (scripted, sample data only)
+// AI assistant demo (scripted, sample data only)
 (function () {
   const log = document.getElementById('ragLog');
   const promptsBox = document.getElementById('ragPrompts');
